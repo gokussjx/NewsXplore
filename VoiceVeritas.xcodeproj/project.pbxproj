@@ -1,0 +1,552 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		67E98E681E38FDDE0014C1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E671E38FDDE0014C1DA /* AppDelegate.swift */; };
+		67E98E6A1E38FDDE0014C1DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E691E38FDDE0014C1DA /* ViewController.swift */; };
+		67E98E6D1E38FDDE0014C1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E98E6B1E38FDDE0014C1DA /* Main.storyboard */; };
+		67E98E701E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E6E1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld */; };
+		67E98E721E38FDDE0014C1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67E98E711E38FDDE0014C1DA /* Assets.xcassets */; };
+		67E98E751E38FDDE0014C1DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E98E731E38FDDE0014C1DA /* LaunchScreen.storyboard */; };
+		67E98E801E38FDDE0014C1DA /* VoiceVeritasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E7F1E38FDDE0014C1DA /* VoiceVeritasTests.swift */; };
+		67E98E8B1E38FDDE0014C1DA /* VoiceVeritasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E8A1E38FDDE0014C1DA /* VoiceVeritasUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		67E98E7C1E38FDDE0014C1DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67E98E5C1E38FDDD0014C1DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67E98E631E38FDDE0014C1DA;
+			remoteInfo = VoiceVeritas;
+		};
+		67E98E871E38FDDE0014C1DA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 67E98E5C1E38FDDD0014C1DA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 67E98E631E38FDDE0014C1DA;
+			remoteInfo = VoiceVeritas;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		67E98E641E38FDDE0014C1DA /* VoiceVeritas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceVeritas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E98E671E38FDDE0014C1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		67E98E691E38FDDE0014C1DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		67E98E6C1E38FDDE0014C1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		67E98E6F1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VoiceVeritas.xcdatamodel; sourceTree = "<group>"; };
+		67E98E711E38FDDE0014C1DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		67E98E741E38FDDE0014C1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		67E98E761E38FDDE0014C1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67E98E7B1E38FDDE0014C1DA /* VoiceVeritasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceVeritasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E98E7F1E38FDDE0014C1DA /* VoiceVeritasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceVeritasTests.swift; sourceTree = "<group>"; };
+		67E98E811E38FDDE0014C1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		67E98E861E38FDDE0014C1DA /* VoiceVeritasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceVeritasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E98E8A1E38FDDE0014C1DA /* VoiceVeritasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceVeritasUITests.swift; sourceTree = "<group>"; };
+		67E98E8C1E38FDDE0014C1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		67E98E611E38FDDE0014C1DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E98E781E38FDDE0014C1DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E98E831E38FDDE0014C1DA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		67E98E5B1E38FDDD0014C1DA = {
+			isa = PBXGroup;
+			children = (
+				67E98E661E38FDDE0014C1DA /* VoiceVeritas */,
+				67E98E7E1E38FDDE0014C1DA /* VoiceVeritasTests */,
+				67E98E891E38FDDE0014C1DA /* VoiceVeritasUITests */,
+				67E98E651E38FDDE0014C1DA /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		67E98E651E38FDDE0014C1DA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				67E98E641E38FDDE0014C1DA /* VoiceVeritas.app */,
+				67E98E7B1E38FDDE0014C1DA /* VoiceVeritasTests.xctest */,
+				67E98E861E38FDDE0014C1DA /* VoiceVeritasUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		67E98E661E38FDDE0014C1DA /* VoiceVeritas */ = {
+			isa = PBXGroup;
+			children = (
+				67E98E671E38FDDE0014C1DA /* AppDelegate.swift */,
+				67E98E691E38FDDE0014C1DA /* ViewController.swift */,
+				67E98E6B1E38FDDE0014C1DA /* Main.storyboard */,
+				67E98E711E38FDDE0014C1DA /* Assets.xcassets */,
+				67E98E731E38FDDE0014C1DA /* LaunchScreen.storyboard */,
+				67E98E761E38FDDE0014C1DA /* Info.plist */,
+				67E98E6E1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld */,
+			);
+			path = VoiceVeritas;
+			sourceTree = "<group>";
+		};
+		67E98E7E1E38FDDE0014C1DA /* VoiceVeritasTests */ = {
+			isa = PBXGroup;
+			children = (
+				67E98E7F1E38FDDE0014C1DA /* VoiceVeritasTests.swift */,
+				67E98E811E38FDDE0014C1DA /* Info.plist */,
+			);
+			path = VoiceVeritasTests;
+			sourceTree = "<group>";
+		};
+		67E98E891E38FDDE0014C1DA /* VoiceVeritasUITests */ = {
+			isa = PBXGroup;
+			children = (
+				67E98E8A1E38FDDE0014C1DA /* VoiceVeritasUITests.swift */,
+				67E98E8C1E38FDDE0014C1DA /* Info.plist */,
+			);
+			path = VoiceVeritasUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		67E98E631E38FDDE0014C1DA /* VoiceVeritas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67E98E8F1E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritas" */;
+			buildPhases = (
+				67E98E601E38FDDE0014C1DA /* Sources */,
+				67E98E611E38FDDE0014C1DA /* Frameworks */,
+				67E98E621E38FDDE0014C1DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoiceVeritas;
+			productName = VoiceVeritas;
+			productReference = 67E98E641E38FDDE0014C1DA /* VoiceVeritas.app */;
+			productType = "com.apple.product-type.application";
+		};
+		67E98E7A1E38FDDE0014C1DA /* VoiceVeritasTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67E98E921E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasTests" */;
+			buildPhases = (
+				67E98E771E38FDDE0014C1DA /* Sources */,
+				67E98E781E38FDDE0014C1DA /* Frameworks */,
+				67E98E791E38FDDE0014C1DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67E98E7D1E38FDDE0014C1DA /* PBXTargetDependency */,
+			);
+			name = VoiceVeritasTests;
+			productName = VoiceVeritasTests;
+			productReference = 67E98E7B1E38FDDE0014C1DA /* VoiceVeritasTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		67E98E851E38FDDE0014C1DA /* VoiceVeritasUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67E98E951E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasUITests" */;
+			buildPhases = (
+				67E98E821E38FDDE0014C1DA /* Sources */,
+				67E98E831E38FDDE0014C1DA /* Frameworks */,
+				67E98E841E38FDDE0014C1DA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67E98E881E38FDDE0014C1DA /* PBXTargetDependency */,
+			);
+			name = VoiceVeritasUITests;
+			productName = VoiceVeritasUITests;
+			productReference = 67E98E861E38FDDE0014C1DA /* VoiceVeritasUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		67E98E5C1E38FDDD0014C1DA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = VoiceVeritas;
+				TargetAttributes = {
+					67E98E631E38FDDE0014C1DA = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MB545KRNCQ;
+						ProvisioningStyle = Automatic;
+					};
+					67E98E7A1E38FDDE0014C1DA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 67E98E631E38FDDE0014C1DA;
+					};
+					67E98E851E38FDDE0014C1DA = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 67E98E631E38FDDE0014C1DA;
+					};
+				};
+			};
+			buildConfigurationList = 67E98E5F1E38FDDD0014C1DA /* Build configuration list for PBXProject "VoiceVeritas" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 67E98E5B1E38FDDD0014C1DA;
+			productRefGroup = 67E98E651E38FDDE0014C1DA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				67E98E631E38FDDE0014C1DA /* VoiceVeritas */,
+				67E98E7A1E38FDDE0014C1DA /* VoiceVeritasTests */,
+				67E98E851E38FDDE0014C1DA /* VoiceVeritasUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		67E98E621E38FDDE0014C1DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E98E751E38FDDE0014C1DA /* LaunchScreen.storyboard in Resources */,
+				67E98E721E38FDDE0014C1DA /* Assets.xcassets in Resources */,
+				67E98E6D1E38FDDE0014C1DA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E98E791E38FDDE0014C1DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E98E841E38FDDE0014C1DA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		67E98E601E38FDDE0014C1DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E98E701E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld in Sources */,
+				67E98E6A1E38FDDE0014C1DA /* ViewController.swift in Sources */,
+				67E98E681E38FDDE0014C1DA /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E98E771E38FDDE0014C1DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E98E801E38FDDE0014C1DA /* VoiceVeritasTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67E98E821E38FDDE0014C1DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67E98E8B1E38FDDE0014C1DA /* VoiceVeritasUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		67E98E7D1E38FDDE0014C1DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67E98E631E38FDDE0014C1DA /* VoiceVeritas */;
+			targetProxy = 67E98E7C1E38FDDE0014C1DA /* PBXContainerItemProxy */;
+		};
+		67E98E881E38FDDE0014C1DA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 67E98E631E38FDDE0014C1DA /* VoiceVeritas */;
+			targetProxy = 67E98E871E38FDDE0014C1DA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		67E98E6B1E38FDDE0014C1DA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67E98E6C1E38FDDE0014C1DA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		67E98E731E38FDDE0014C1DA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				67E98E741E38FDDE0014C1DA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		67E98E8D1E38FDDE0014C1DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		67E98E8E1E38FDDE0014C1DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		67E98E901E38FDDE0014C1DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MB545KRNCQ;
+				INFOPLIST_FILE = VoiceVeritas/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritas;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		67E98E911E38FDDE0014C1DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MB545KRNCQ;
+				INFOPLIST_FILE = VoiceVeritas/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritas;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		67E98E931E38FDDE0014C1DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VoiceVeritasTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceVeritas.app/VoiceVeritas";
+			};
+			name = Debug;
+		};
+		67E98E941E38FDDE0014C1DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VoiceVeritasTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceVeritas.app/VoiceVeritas";
+			};
+			name = Release;
+		};
+		67E98E961E38FDDE0014C1DA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VoiceVeritasUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VoiceVeritas;
+			};
+			name = Debug;
+		};
+		67E98E971E38FDDE0014C1DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = VoiceVeritasUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = VoiceVeritas;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		67E98E5F1E38FDDD0014C1DA /* Build configuration list for PBXProject "VoiceVeritas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E98E8D1E38FDDE0014C1DA /* Debug */,
+				67E98E8E1E38FDDE0014C1DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		67E98E8F1E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E98E901E38FDDE0014C1DA /* Debug */,
+				67E98E911E38FDDE0014C1DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		67E98E921E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E98E931E38FDDE0014C1DA /* Debug */,
+				67E98E941E38FDDE0014C1DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		67E98E951E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67E98E961E38FDDE0014C1DA /* Debug */,
+				67E98E971E38FDDE0014C1DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		67E98E6E1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				67E98E6F1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodel */,
+			);
+			currentVersion = 67E98E6F1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodel */;
+			path = VoiceVeritas.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 67E98E5C1E38FDDD0014C1DA /* Project object */;
+}
