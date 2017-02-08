@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/bidyut/Documents/Projects/RJI/NX/NewsXplore.xcodeproj">
+      location = "self:NewsXplore.xcodeproj">
    </FileRef>
 </Workspace>
