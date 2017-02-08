@@ -1,9 +1,9 @@
 //
 //  ViewController.swift
-//  VoiceVeritas
+//  NewsXplore
 //
 //  Created by Bidyut Mukherjee on 1/25/17.
-//  Copyright © 2017 VoiceVeritas. All rights reserved.
+//  Copyright © 2017 NewsXplore. All rights reserved.
 //
 
 import UIKit

@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  VoiceVeritas
+//  NewsXplore
 //
 //  Created by Bidyut Mukherjee on 1/25/17.
-//  Copyright © 2017 VoiceVeritas. All rights reserved.
+//  Copyright © 2017 NewsXplore. All rights reserved.
 //
 
 import UIKit
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "VoiceVeritas")
+        let container = NSPersistentContainer(name: "NewsXplore")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

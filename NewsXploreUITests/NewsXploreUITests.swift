@@ -1,14 +1,14 @@
 //
-//  VoiceVeritasUITests.swift
-//  VoiceVeritasUITests
+//  NewsXploreUITests.swift
+//  NewsXploreUITests
 //
 //  Created by Bidyut Mukherjee on 1/25/17.
-//  Copyright © 2017 VoiceVeritas. All rights reserved.
+//  Copyright © 2017 NewsXplore. All rights reserved.
 //
 
 import XCTest
 
-class VoiceVeritasUITests: XCTestCase {
+class NewsXploreUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()

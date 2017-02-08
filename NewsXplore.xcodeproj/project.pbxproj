@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67C082CC1E4ABA14006488DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 67E98E761E38FDDE0014C1DA /* Info.plist */; };
 		67E98E681E38FDDE0014C1DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E671E38FDDE0014C1DA /* AppDelegate.swift */; };
 		67E98E6A1E38FDDE0014C1DA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E691E38FDDE0014C1DA /* ViewController.swift */; };
 		67E98E6D1E38FDDE0014C1DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E98E6B1E38FDDE0014C1DA /* Main.storyboard */; };
-		67E98E701E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E6E1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld */; };
+		67E98E701E38FDDE0014C1DA /* NewsXplore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E6E1E38FDDE0014C1DA /* NewsXplore.xcdatamodeld */; };
 		67E98E721E38FDDE0014C1DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67E98E711E38FDDE0014C1DA /* Assets.xcassets */; };
 		67E98E751E38FDDE0014C1DA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67E98E731E38FDDE0014C1DA /* LaunchScreen.storyboard */; };
-		67E98E801E38FDDE0014C1DA /* VoiceVeritasTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E7F1E38FDDE0014C1DA /* VoiceVeritasTests.swift */; };
-		67E98E8B1E38FDDE0014C1DA /* VoiceVeritasUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E8A1E38FDDE0014C1DA /* VoiceVeritasUITests.swift */; };
+		67E98E801E38FDDE0014C1DA /* NewsXploreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E7F1E38FDDE0014C1DA /* NewsXploreTests.swift */; };
+		67E98E8B1E38FDDE0014C1DA /* NewsXploreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E98E8A1E38FDDE0014C1DA /* NewsXploreUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,31 +24,31 @@
 			containerPortal = 67E98E5C1E38FDDD0014C1DA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 67E98E631E38FDDE0014C1DA;
-			remoteInfo = VoiceVeritas;
+			remoteInfo = NewsXplore;
 		};
 		67E98E871E38FDDE0014C1DA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 67E98E5C1E38FDDD0014C1DA /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 67E98E631E38FDDE0014C1DA;
-			remoteInfo = VoiceVeritas;
+			remoteInfo = NewsXplore;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		67E98E641E38FDDE0014C1DA /* VoiceVeritas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceVeritas.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E98E641E38FDDE0014C1DA /* NewsXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67E98E671E38FDDE0014C1DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67E98E691E38FDDE0014C1DA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		67E98E6C1E38FDDE0014C1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		67E98E6F1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VoiceVeritas.xcdatamodel; sourceTree = "<group>"; };
+		67E98E6F1E38FDDE0014C1DA /* NewsXplore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NewsXplore.xcdatamodel; sourceTree = "<group>"; };
 		67E98E711E38FDDE0014C1DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		67E98E741E38FDDE0014C1DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		67E98E761E38FDDE0014C1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67E98E7B1E38FDDE0014C1DA /* VoiceVeritasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceVeritasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67E98E7F1E38FDDE0014C1DA /* VoiceVeritasTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceVeritasTests.swift; sourceTree = "<group>"; };
+		67E98E7B1E38FDDE0014C1DA /* NewsXploreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsXploreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E98E7F1E38FDDE0014C1DA /* NewsXploreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsXploreTests.swift; sourceTree = "<group>"; };
 		67E98E811E38FDDE0014C1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67E98E861E38FDDE0014C1DA /* VoiceVeritasUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoiceVeritasUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67E98E8A1E38FDDE0014C1DA /* VoiceVeritasUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceVeritasUITests.swift; sourceTree = "<group>"; };
+		67E98E861E38FDDE0014C1DA /* NewsXploreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewsXploreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		67E98E8A1E38FDDE0014C1DA /* NewsXploreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsXploreUITests.swift; sourceTree = "<group>"; };
 		67E98E8C1E38FDDE0014C1DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,9 +80,9 @@
 		67E98E5B1E38FDDD0014C1DA = {
 			isa = PBXGroup;
 			children = (
-				67E98E661E38FDDE0014C1DA /* VoiceVeritas */,
-				67E98E7E1E38FDDE0014C1DA /* VoiceVeritasTests */,
-				67E98E891E38FDDE0014C1DA /* VoiceVeritasUITests */,
+				67E98E661E38FDDE0014C1DA /* NewsXplore */,
+				67E98E7E1E38FDDE0014C1DA /* NewsXploreTests */,
+				67E98E891E38FDDE0014C1DA /* NewsXploreUITests */,
 				67E98E651E38FDDE0014C1DA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,14 +90,14 @@
 		67E98E651E38FDDE0014C1DA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				67E98E641E38FDDE0014C1DA /* VoiceVeritas.app */,
-				67E98E7B1E38FDDE0014C1DA /* VoiceVeritasTests.xctest */,
-				67E98E861E38FDDE0014C1DA /* VoiceVeritasUITests.xctest */,
+				67E98E641E38FDDE0014C1DA /* NewsXplore.app */,
+				67E98E7B1E38FDDE0014C1DA /* NewsXploreTests.xctest */,
+				67E98E861E38FDDE0014C1DA /* NewsXploreUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		67E98E661E38FDDE0014C1DA /* VoiceVeritas */ = {
+		67E98E661E38FDDE0014C1DA /* NewsXplore */ = {
 			isa = PBXGroup;
 			children = (
 				67E98E671E38FDDE0014C1DA /* AppDelegate.swift */,
@@ -105,35 +106,35 @@
 				67E98E711E38FDDE0014C1DA /* Assets.xcassets */,
 				67E98E731E38FDDE0014C1DA /* LaunchScreen.storyboard */,
 				67E98E761E38FDDE0014C1DA /* Info.plist */,
-				67E98E6E1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld */,
+				67E98E6E1E38FDDE0014C1DA /* NewsXplore.xcdatamodeld */,
 			);
-			path = VoiceVeritas;
+			path = NewsXplore;
 			sourceTree = "<group>";
 		};
-		67E98E7E1E38FDDE0014C1DA /* VoiceVeritasTests */ = {
+		67E98E7E1E38FDDE0014C1DA /* NewsXploreTests */ = {
 			isa = PBXGroup;
 			children = (
-				67E98E7F1E38FDDE0014C1DA /* VoiceVeritasTests.swift */,
+				67E98E7F1E38FDDE0014C1DA /* NewsXploreTests.swift */,
 				67E98E811E38FDDE0014C1DA /* Info.plist */,
 			);
-			path = VoiceVeritasTests;
+			path = NewsXploreTests;
 			sourceTree = "<group>";
 		};
-		67E98E891E38FDDE0014C1DA /* VoiceVeritasUITests */ = {
+		67E98E891E38FDDE0014C1DA /* NewsXploreUITests */ = {
 			isa = PBXGroup;
 			children = (
-				67E98E8A1E38FDDE0014C1DA /* VoiceVeritasUITests.swift */,
+				67E98E8A1E38FDDE0014C1DA /* NewsXploreUITests.swift */,
 				67E98E8C1E38FDDE0014C1DA /* Info.plist */,
 			);
-			path = VoiceVeritasUITests;
+			path = NewsXploreUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		67E98E631E38FDDE0014C1DA /* VoiceVeritas */ = {
+		67E98E631E38FDDE0014C1DA /* NewsXplore */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67E98E8F1E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritas" */;
+			buildConfigurationList = 67E98E8F1E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "NewsXplore" */;
 			buildPhases = (
 				67E98E601E38FDDE0014C1DA /* Sources */,
 				67E98E611E38FDDE0014C1DA /* Frameworks */,
@@ -143,14 +144,14 @@
 			);
 			dependencies = (
 			);
-			name = VoiceVeritas;
-			productName = VoiceVeritas;
-			productReference = 67E98E641E38FDDE0014C1DA /* VoiceVeritas.app */;
+			name = NewsXplore;
+			productName = NewsXplore;
+			productReference = 67E98E641E38FDDE0014C1DA /* NewsXplore.app */;
 			productType = "com.apple.product-type.application";
 		};
-		67E98E7A1E38FDDE0014C1DA /* VoiceVeritasTests */ = {
+		67E98E7A1E38FDDE0014C1DA /* NewsXploreTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67E98E921E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasTests" */;
+			buildConfigurationList = 67E98E921E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "NewsXploreTests" */;
 			buildPhases = (
 				67E98E771E38FDDE0014C1DA /* Sources */,
 				67E98E781E38FDDE0014C1DA /* Frameworks */,
@@ -161,14 +162,14 @@
 			dependencies = (
 				67E98E7D1E38FDDE0014C1DA /* PBXTargetDependency */,
 			);
-			name = VoiceVeritasTests;
-			productName = VoiceVeritasTests;
-			productReference = 67E98E7B1E38FDDE0014C1DA /* VoiceVeritasTests.xctest */;
+			name = NewsXploreTests;
+			productName = NewsXploreTests;
+			productReference = 67E98E7B1E38FDDE0014C1DA /* NewsXploreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		67E98E851E38FDDE0014C1DA /* VoiceVeritasUITests */ = {
+		67E98E851E38FDDE0014C1DA /* NewsXploreUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67E98E951E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasUITests" */;
+			buildConfigurationList = 67E98E951E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "NewsXploreUITests" */;
 			buildPhases = (
 				67E98E821E38FDDE0014C1DA /* Sources */,
 				67E98E831E38FDDE0014C1DA /* Frameworks */,
@@ -179,9 +180,9 @@
 			dependencies = (
 				67E98E881E38FDDE0014C1DA /* PBXTargetDependency */,
 			);
-			name = VoiceVeritasUITests;
-			productName = VoiceVeritasUITests;
-			productReference = 67E98E861E38FDDE0014C1DA /* VoiceVeritasUITests.xctest */;
+			name = NewsXploreUITests;
+			productName = NewsXploreUITests;
+			productReference = 67E98E861E38FDDE0014C1DA /* NewsXploreUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -192,7 +193,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = VoiceVeritas;
+				ORGANIZATIONNAME = NewsXplore;
 				TargetAttributes = {
 					67E98E631E38FDDE0014C1DA = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -206,12 +207,13 @@
 					};
 					67E98E851E38FDDE0014C1DA = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = MB545KRNCQ;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 67E98E631E38FDDE0014C1DA;
 					};
 				};
 			};
-			buildConfigurationList = 67E98E5F1E38FDDD0014C1DA /* Build configuration list for PBXProject "VoiceVeritas" */;
+			buildConfigurationList = 67E98E5F1E38FDDD0014C1DA /* Build configuration list for PBXProject "NewsXplore" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -224,9 +226,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				67E98E631E38FDDE0014C1DA /* VoiceVeritas */,
-				67E98E7A1E38FDDE0014C1DA /* VoiceVeritasTests */,
-				67E98E851E38FDDE0014C1DA /* VoiceVeritasUITests */,
+				67E98E631E38FDDE0014C1DA /* NewsXplore */,
+				67E98E7A1E38FDDE0014C1DA /* NewsXploreTests */,
+				67E98E851E38FDDE0014C1DA /* NewsXploreUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -236,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67C082CC1E4ABA14006488DC /* Info.plist in Resources */,
 				67E98E751E38FDDE0014C1DA /* LaunchScreen.storyboard in Resources */,
 				67E98E721E38FDDE0014C1DA /* Assets.xcassets in Resources */,
 				67E98E6D1E38FDDE0014C1DA /* Main.storyboard in Resources */,
@@ -263,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E98E701E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld in Sources */,
+				67E98E701E38FDDE0014C1DA /* NewsXplore.xcdatamodeld in Sources */,
 				67E98E6A1E38FDDE0014C1DA /* ViewController.swift in Sources */,
 				67E98E681E38FDDE0014C1DA /* AppDelegate.swift in Sources */,
 			);
@@ -273,7 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E98E801E38FDDE0014C1DA /* VoiceVeritasTests.swift in Sources */,
+				67E98E801E38FDDE0014C1DA /* NewsXploreTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E98E8B1E38FDDE0014C1DA /* VoiceVeritasUITests.swift in Sources */,
+				67E98E8B1E38FDDE0014C1DA /* NewsXploreUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,12 +293,12 @@
 /* Begin PBXTargetDependency section */
 		67E98E7D1E38FDDE0014C1DA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 67E98E631E38FDDE0014C1DA /* VoiceVeritas */;
+			target = 67E98E631E38FDDE0014C1DA /* NewsXplore */;
 			targetProxy = 67E98E7C1E38FDDE0014C1DA /* PBXContainerItemProxy */;
 		};
 		67E98E881E38FDDE0014C1DA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 67E98E631E38FDDE0014C1DA /* VoiceVeritas */;
+			target = 67E98E631E38FDDE0014C1DA /* NewsXplore */;
 			targetProxy = 67E98E871E38FDDE0014C1DA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -420,9 +423,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MB545KRNCQ;
-				INFOPLIST_FILE = VoiceVeritas/Info.plist;
+				INFOPLIST_FILE = NewsXplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.NewsXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -435,9 +438,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MB545KRNCQ;
-				INFOPLIST_FILE = VoiceVeritas/Info.plist;
+				INFOPLIST_FILE = NewsXplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritas;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.NewsXplore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -448,12 +451,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = VoiceVeritasTests/Info.plist;
+				INFOPLIST_FILE = NewsXploreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.NewsXploreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceVeritas.app/VoiceVeritas";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsXplore.app/NewsXplore";
 			};
 			name = Debug;
 		};
@@ -462,12 +465,12 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = VoiceVeritasTests/Info.plist;
+				INFOPLIST_FILE = NewsXploreTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.NewsXploreTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoiceVeritas.app/VoiceVeritas";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewsXplore.app/NewsXplore";
 			};
 			name = Release;
 		};
@@ -475,12 +478,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = VoiceVeritasUITests/Info.plist;
+				DEVELOPMENT_TEAM = MB545KRNCQ;
+				INFOPLIST_FILE = NewsXploreUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.NewsXploreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = VoiceVeritas;
+				TEST_TARGET_NAME = NewsXplore;
 			};
 			name = Debug;
 		};
@@ -488,19 +492,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				INFOPLIST_FILE = VoiceVeritasUITests/Info.plist;
+				DEVELOPMENT_TEAM = MB545KRNCQ;
+				INFOPLIST_FILE = NewsXploreUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.VoiceVeritasUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mizzou.NewsXploreUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = VoiceVeritas;
+				TEST_TARGET_NAME = NewsXplore;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		67E98E5F1E38FDDD0014C1DA /* Build configuration list for PBXProject "VoiceVeritas" */ = {
+		67E98E5F1E38FDDD0014C1DA /* Build configuration list for PBXProject "NewsXplore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				67E98E8D1E38FDDE0014C1DA /* Debug */,
@@ -509,40 +514,43 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67E98E8F1E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritas" */ = {
+		67E98E8F1E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "NewsXplore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				67E98E901E38FDDE0014C1DA /* Debug */,
 				67E98E911E38FDDE0014C1DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		67E98E921E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasTests" */ = {
+		67E98E921E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "NewsXploreTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				67E98E931E38FDDE0014C1DA /* Debug */,
 				67E98E941E38FDDE0014C1DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		67E98E951E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "VoiceVeritasUITests" */ = {
+		67E98E951E38FDDE0014C1DA /* Build configuration list for PBXNativeTarget "NewsXploreUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				67E98E961E38FDDE0014C1DA /* Debug */,
 				67E98E971E38FDDE0014C1DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		67E98E6E1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodeld */ = {
+		67E98E6E1E38FDDE0014C1DA /* NewsXplore.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				67E98E6F1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodel */,
+				67E98E6F1E38FDDE0014C1DA /* NewsXplore.xcdatamodel */,
 			);
-			currentVersion = 67E98E6F1E38FDDE0014C1DA /* VoiceVeritas.xcdatamodel */;
-			path = VoiceVeritas.xcdatamodeld;
+			currentVersion = 67E98E6F1E38FDDE0014C1DA /* NewsXplore.xcdatamodel */;
+			path = NewsXplore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
