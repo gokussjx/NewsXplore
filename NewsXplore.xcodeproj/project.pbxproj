@@ -7,17 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		675D77791E5BF2E800402A85 /* AlchemyDataNewsV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77701E5BF2E800402A85 /* AlchemyDataNewsV1.framework */; };
-		675D777A1E5BF2E800402A85 /* AlchemyLanguageV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77711E5BF2E800402A85 /* AlchemyLanguageV1.framework */; };
-		675D777B1E5BF2E800402A85 /* DiscoveryV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77721E5BF2E800402A85 /* DiscoveryV1.framework */; };
-		675D777C1E5BF2E800402A85 /* NaturalLanguageClassifierV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77731E5BF2E800402A85 /* NaturalLanguageClassifierV1.framework */; };
-		675D777D1E5BF2E800402A85 /* NaturalLanguageUnderstandingV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77741E5BF2E800402A85 /* NaturalLanguageUnderstandingV1.framework */; };
-		675D777E1E5BF2E800402A85 /* PersonalityInsightsV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77751E5BF2E800402A85 /* PersonalityInsightsV3.framework */; };
-		675D777F1E5BF2E800402A85 /* RetrieveAndRankV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77761E5BF2E800402A85 /* RetrieveAndRankV1.framework */; };
-		675D77801E5BF2E800402A85 /* SpeechToTextV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77771E5BF2E800402A85 /* SpeechToTextV1.framework */; };
-		675D77811E5BF2E800402A85 /* ToneAnalyzerV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77781E5BF2E800402A85 /* ToneAnalyzerV3.framework */; };
-		675D77841E5BF3A900402A85 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77831E5BF3A900402A85 /* RestKit.framework */; };
-		675D77881E5BF55B00402A85 /* RelationshipExtractionV1Beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 675D77871E5BF55B00402A85 /* RelationshipExtractionV1Beta.framework */; };
 		678731E71E4AC36200806884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678731E61E4AC36200806884 /* AppDelegate.swift */; };
 		678731E91E4AC36200806884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678731E81E4AC36200806884 /* ViewController.swift */; };
 		678731EC1E4AC36200806884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678731EA1E4AC36200806884 /* Main.storyboard */; };
@@ -48,18 +37,6 @@
 
 /* Begin PBXFileReference section */
 		33C082DDFCB710A22EBAE4A6 /* Pods-NewsXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsXplore/Pods-NewsXplore.release.xcconfig"; sourceTree = "<group>"; };
-		675D77701E5BF2E800402A85 /* AlchemyDataNewsV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyDataNewsV1.framework; path = Carthage/Build/iOS/AlchemyDataNewsV1.framework; sourceTree = "<group>"; };
-		675D77711E5BF2E800402A85 /* AlchemyLanguageV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlchemyLanguageV1.framework; path = Carthage/Build/iOS/AlchemyLanguageV1.framework; sourceTree = "<group>"; };
-		675D77721E5BF2E800402A85 /* DiscoveryV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DiscoveryV1.framework; path = Carthage/Build/iOS/DiscoveryV1.framework; sourceTree = "<group>"; };
-		675D77731E5BF2E800402A85 /* NaturalLanguageClassifierV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguageClassifierV1.framework; path = Carthage/Build/iOS/NaturalLanguageClassifierV1.framework; sourceTree = "<group>"; };
-		675D77741E5BF2E800402A85 /* NaturalLanguageUnderstandingV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NaturalLanguageUnderstandingV1.framework; path = Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework; sourceTree = "<group>"; };
-		675D77751E5BF2E800402A85 /* PersonalityInsightsV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PersonalityInsightsV3.framework; path = Carthage/Build/iOS/PersonalityInsightsV3.framework; sourceTree = "<group>"; };
-		675D77761E5BF2E800402A85 /* RetrieveAndRankV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RetrieveAndRankV1.framework; path = Carthage/Build/iOS/RetrieveAndRankV1.framework; sourceTree = "<group>"; };
-		675D77771E5BF2E800402A85 /* SpeechToTextV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechToTextV1.framework; path = Carthage/Build/iOS/SpeechToTextV1.framework; sourceTree = "<group>"; };
-		675D77781E5BF2E800402A85 /* ToneAnalyzerV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ToneAnalyzerV3.framework; path = Carthage/Build/iOS/ToneAnalyzerV3.framework; sourceTree = "<group>"; };
-		675D77831E5BF3A900402A85 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
-		675D77851E5BF54D00402A85 /* RelationshipExtractionV1Beta.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = RelationshipExtractionV1Beta.framework.dSYM; path = Carthage/Build/iOS/RelationshipExtractionV1Beta.framework.dSYM; sourceTree = "<group>"; };
-		675D77871E5BF55B00402A85 /* RelationshipExtractionV1Beta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RelationshipExtractionV1Beta.framework; path = Carthage/Build/iOS/RelationshipExtractionV1Beta.framework; sourceTree = "<group>"; };
 		678731E31E4AC36200806884 /* NewsXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		678731E61E4AC36200806884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		678731E81E4AC36200806884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,17 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				675D77881E5BF55B00402A85 /* RelationshipExtractionV1Beta.framework in Frameworks */,
-				675D77841E5BF3A900402A85 /* RestKit.framework in Frameworks */,
-				675D77791E5BF2E800402A85 /* AlchemyDataNewsV1.framework in Frameworks */,
-				675D777A1E5BF2E800402A85 /* AlchemyLanguageV1.framework in Frameworks */,
-				675D777B1E5BF2E800402A85 /* DiscoveryV1.framework in Frameworks */,
-				675D777C1E5BF2E800402A85 /* NaturalLanguageClassifierV1.framework in Frameworks */,
-				675D777D1E5BF2E800402A85 /* NaturalLanguageUnderstandingV1.framework in Frameworks */,
-				675D777E1E5BF2E800402A85 /* PersonalityInsightsV3.framework in Frameworks */,
-				675D777F1E5BF2E800402A85 /* RetrieveAndRankV1.framework in Frameworks */,
-				675D77801E5BF2E800402A85 /* SpeechToTextV1.framework in Frameworks */,
-				675D77811E5BF2E800402A85 /* ToneAnalyzerV3.framework in Frameworks */,
 				C58E367DAB9F52AECDB7247F /* Pods_NewsXplore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -181,18 +147,6 @@
 		F17C984CD09B2131C54322B4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				675D77871E5BF55B00402A85 /* RelationshipExtractionV1Beta.framework */,
-				675D77851E5BF54D00402A85 /* RelationshipExtractionV1Beta.framework.dSYM */,
-				675D77831E5BF3A900402A85 /* RestKit.framework */,
-				675D77701E5BF2E800402A85 /* AlchemyDataNewsV1.framework */,
-				675D77711E5BF2E800402A85 /* AlchemyLanguageV1.framework */,
-				675D77721E5BF2E800402A85 /* DiscoveryV1.framework */,
-				675D77731E5BF2E800402A85 /* NaturalLanguageClassifierV1.framework */,
-				675D77741E5BF2E800402A85 /* NaturalLanguageUnderstandingV1.framework */,
-				675D77751E5BF2E800402A85 /* PersonalityInsightsV3.framework */,
-				675D77761E5BF2E800402A85 /* RetrieveAndRankV1.framework */,
-				675D77771E5BF2E800402A85 /* SpeechToTextV1.framework */,
-				675D77781E5BF2E800402A85 /* ToneAnalyzerV3.framework */,
 				E94215E5104662B71F6C6953 /* Pods_NewsXplore.framework */,
 			);
 			name = Frameworks;
@@ -211,7 +165,6 @@
 				678731E11E4AC36200806884 /* Resources */,
 				09280DE3103E6344CF43807E /* [CP] Embed Pods Frameworks */,
 				CBF5E87900D8C842633ED943 /* [CP] Copy Pods Resources */,
-				675D77821E5BF36D00402A85 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -349,30 +302,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewsXplore/Pods-NewsXplore-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		675D77821E5BF36D00402A85 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RestKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlchemyDataNewsV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/AlchemyLanguageV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/DiscoveryV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/NaturalLanguageClassifierV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/NaturalLanguageUnderstandingV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/PersonalityInsightsV3.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RetrieveAndRankV1.framework\n",
-				"$(SRCROOT)/Carthage/Build/iOS/SpeechToTextV1.framework\n",
-				"$(SRCROOT)/Carthage/Build/iOS/ToneAnalyzerV3.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RelationshipExtractionV1Beta.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		9F5A558068D9EDC27E980C0D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -567,10 +496,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MB545KRNCQ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = NewsXplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.mizzou.NewsXplore;
@@ -585,10 +510,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MB545KRNCQ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = NewsXplore/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.mizzou.NewsXplore;
