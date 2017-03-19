@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67356EA61E7E0E4200C81468 /* ReportsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67356EA51E7E0E4200C81468 /* ReportsListTableViewCell.swift */; };
 		678731E71E4AC36200806884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678731E61E4AC36200806884 /* AppDelegate.swift */; };
 		678731E91E4AC36200806884 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678731E81E4AC36200806884 /* ViewController.swift */; };
 		678731EC1E4AC36200806884 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 678731EA1E4AC36200806884 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		33C082DDFCB710A22EBAE4A6 /* Pods-NewsXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsXplore/Pods-NewsXplore.release.xcconfig"; sourceTree = "<group>"; };
+		67356EA51E7E0E4200C81468 /* ReportsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsListTableViewCell.swift; sourceTree = "<group>"; };
 		678731E31E4AC36200806884 /* NewsXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		678731E61E4AC36200806884 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		678731E81E4AC36200806884 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				678731F21E4AC36200806884 /* LaunchScreen.storyboard */,
 				678731F51E4AC36200806884 /* Info.plist */,
 				678731ED1E4AC36200806884 /* NewsXplore.xcdatamodeld */,
+				67356EA51E7E0E4200C81468 /* ReportsListTableViewCell.swift */,
 			);
 			path = NewsXplore;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				678731EF1E4AC36200806884 /* NewsXplore.xcdatamodeld in Sources */,
 				678731E91E4AC36200806884 /* ViewController.swift in Sources */,
 				678731E71E4AC36200806884 /* AppDelegate.swift in Sources */,
+				67356EA61E7E0E4200C81468 /* ReportsListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
