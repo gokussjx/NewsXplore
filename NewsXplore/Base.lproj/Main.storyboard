@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,34 +22,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRL-0J-Rx6">
-                                <rect key="frame" x="15.5" y="175.5" width="80" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRL-0J-Rx6">
+                                <rect key="frame" x="16" y="104" width="80" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="2hT-G3-pML"/>
+                                    <constraint firstAttribute="height" constant="31" id="xsG-0H-ONf"/>
+                                </constraints>
                                 <state key="normal" title="Paste"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Yi-7c4">
-                                <rect key="frame" x="100.5" y="449" width="173" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Yi-7c4">
+                                <rect key="frame" x="101.5" y="502" width="172.5" height="42.5"/>
                                 <color key="backgroundColor" red="0.23104345800000001" green="0.59902668000000003" blue="0.98928445580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="Cj2-kF-yaf"/>
+                                    <constraint firstAttribute="width" constant="173" id="PWa-tg-Afa"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Analyze">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41r-JC-RmT">
-                                <rect key="frame" x="278.5" y="175.5" width="80" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41r-JC-RmT">
+                                <rect key="frame" x="279" y="104" width="80" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="5yV-qL-xZp"/>
+                                    <constraint firstAttribute="width" constant="80" id="miA-ah-XQP"/>
+                                </constraints>
                                 <state key="normal" title="Clear"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Text goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-nT-BWd" userLabel="TextSearchBox">
-                                <rect key="frame" x="15.5" y="235" width="343" height="177"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-nT-BWd" userLabel="TextSearchBox">
+                                <rect key="frame" x="16" y="147" width="343" height="331.5"/>
                                 <color key="backgroundColor" red="0.97392152320000003" green="0.97392152320000003" blue="0.97392152320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="144" id="69I-bY-JGl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mRF-2e-IN4" firstAttribute="top" secondItem="zbw-Yi-7c4" secondAttribute="bottom" constant="73.5" id="5qF-Dg-rVI"/>
+                            <constraint firstItem="cMn-nT-BWd" firstAttribute="trailing" secondItem="41r-JC-RmT" secondAttribute="trailing" id="6g8-9I-GUm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="oRL-0J-Rx6" secondAttribute="leading" id="7e8-ea-uwZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="41r-JC-RmT" secondAttribute="trailing" id="Cnp-Ug-pJL"/>
+                            <constraint firstItem="oRL-0J-Rx6" firstAttribute="top" secondItem="v5n-5u-k6d" secondAttribute="bottom" constant="84" id="D5i-8d-D4X"/>
+                            <constraint firstItem="zbw-Yi-7c4" firstAttribute="centerX" secondItem="DBc-wu-hzX" secondAttribute="centerX" id="D73-RW-MBm"/>
+                            <constraint firstItem="cMn-nT-BWd" firstAttribute="leading" secondItem="oRL-0J-Rx6" secondAttribute="leading" id="Pj5-AH-496"/>
+                            <constraint firstItem="41r-JC-RmT" firstAttribute="top" secondItem="v5n-5u-k6d" secondAttribute="bottom" constant="84" id="XgA-s5-oAH"/>
+                            <constraint firstItem="zbw-Yi-7c4" firstAttribute="top" secondItem="cMn-nT-BWd" secondAttribute="bottom" constant="23.5" id="Zkw-Zu-Kbf"/>
+                            <constraint firstItem="cMn-nT-BWd" firstAttribute="top" secondItem="oRL-0J-Rx6" secondAttribute="bottom" constant="12" id="atX-7J-MmZ"/>
+                            <constraint firstItem="cMn-nT-BWd" firstAttribute="top" secondItem="41r-JC-RmT" secondAttribute="bottom" constant="12" id="jt0-vV-Bsp"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Home" id="06p-rd-g5T"/>
@@ -60,12 +85,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dF-o1-l9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711.2" y="-164.16791604197903"/>
+            <point key="canvasLocation" x="1710" y="-165"/>
         </scene>
         <!--Reports-->
         <scene sceneID="P3d-cM-uP3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hIm-tz-hwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="JFv-o4-KyO" customClass="ReportListTableViewController" customModule="NewsXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="e4J-Al-aoW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -88,6 +112,7 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Reports" id="adJ-9y-eCS"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hIm-tz-hwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1711.2" y="481.70914542728639"/>
         </scene>
