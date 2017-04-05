@@ -7,9 +7,9 @@
         <attribute name="mostLikely" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="resultDictionary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ServerResultsDictionary" inverseName="results" inverseEntity="ServerResultsDictionary" syncable="YES"/>
+        <relationship name="resultDictionary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ServerResultDictionary" inverseName="results" inverseEntity="ServerResultDictionary" syncable="YES"/>
     </entity>
-    <entity name="ServerResultsDictionary" representedClassName="ServerResultsDictionary" syncable="YES">
+    <entity name="ServerResultDictionary" representedClassName="ServerResultDictionary" syncable="YES">
         <attribute name="dataSource" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServerResult" inverseName="resultDictionary" inverseEntity="ServerResult" syncable="YES"/>
@@ -18,7 +18,7 @@
     <entity name="StatusPoll" representedClassName="StatusPoll" syncable="YES">
         <attribute name="errorMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="resultsDictionary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServerResultsDictionary" inverseName="statusPoll" inverseEntity="ServerResultsDictionary" syncable="YES"/>
+        <relationship name="resultsDictionary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServerResultDictionary" inverseName="statusPoll" inverseEntity="ServerResultDictionary" syncable="YES"/>
     </entity>
     <entity name="Tracking" representedClassName="Tracking" syncable="YES">
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
@@ -28,6 +28,6 @@
         <element name="Tracking" positionX="-63" positionY="-18" width="128" height="75"/>
         <element name="StatusPoll" positionX="-54" positionY="9" width="128" height="90"/>
         <element name="ServerResult" positionX="-36" positionY="27" width="128" height="150"/>
-        <element name="ServerResultsDictionary" positionX="-18" positionY="81" width="128" height="105"/>
+        <element name="ServerResultDictionary" positionX="-18" positionY="81" width="128" height="105"/>
     </elements>
 </model>
