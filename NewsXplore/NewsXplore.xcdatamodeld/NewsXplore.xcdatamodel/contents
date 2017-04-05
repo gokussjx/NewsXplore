@@ -18,7 +18,7 @@
     <entity name="StatusPoll" representedClassName="StatusPoll" syncable="YES">
         <attribute name="errorMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="resultsDictionary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ServerResultsDictionary" inverseName="statusPoll" inverseEntity="ServerResultsDictionary" syncable="YES"/>
+        <relationship name="resultsDictionary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServerResultsDictionary" inverseName="statusPoll" inverseEntity="ServerResultsDictionary" syncable="YES"/>
     </entity>
     <entity name="Tracking" representedClassName="Tracking" syncable="YES">
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
