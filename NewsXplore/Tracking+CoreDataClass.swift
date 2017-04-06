@@ -11,5 +11,19 @@ import CoreData
 
 @objc(Tracking)
 public class Tracking: NSManagedObject {
-
+    
+    convenience init?(json: [String: Any]?) {
+        guard let context = CoreDataStack.sharedInstance.managedContext else {
+            return nil
+        }
+        
+        self.init(entity: Tracking.entity(), insertInto: context)
+        
+        parseAndStore(json: json)
+    }
+    
+    func parseAndStore(json: [String: Any]?) {
+        self.status = json?["status"] as? String
+        self.trackingId = json?["data"] as? String
+    }
 }

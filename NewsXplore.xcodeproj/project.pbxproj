@@ -25,6 +25,8 @@
 		679ED6C61E94B3CF00F91868 /* ServerResult+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ED6BE1E94B3CF00F91868 /* ServerResult+CoreDataProperties.swift */; };
 		679ED6CF1E94B43400F91868 /* ServerResultDictionary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ED6CD1E94B43400F91868 /* ServerResultDictionary+CoreDataClass.swift */; };
 		679ED6D01E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ED6CE1E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift */; };
+		67FF6F801E9585CE0018EB73 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FF6F7F1E9585CE0018EB73 /* CoreDataStack.swift */; };
+		67FF6F841E96C81B0018EB73 /* results_mod.json in Resources */ = {isa = PBXBuildFile; fileRef = 67FF6F831E96C81B0018EB73 /* results_mod.json */; };
 		C58E367DAB9F52AECDB7247F /* Pods_NewsXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94215E5104662B71F6C6953 /* Pods_NewsXplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +73,8 @@
 		679ED6BE1E94B3CF00F91868 /* ServerResult+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServerResult+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		679ED6CD1E94B43400F91868 /* ServerResultDictionary+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServerResultDictionary+CoreDataClass.swift"; sourceTree = "<group>"; };
 		679ED6CE1E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServerResultDictionary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		67FF6F7F1E9585CE0018EB73 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		67FF6F831E96C81B0018EB73 /* results_mod.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = results_mod.json; path = ../../../../results_mod.json; sourceTree = "<group>"; };
 		D4D9EFC37A779C2E7E58FDB8 /* Pods-NewsXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsXplore/Pods-NewsXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		E94215E5104662B71F6C6953 /* Pods_NewsXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -184,11 +188,13 @@
 		679ED6B81E94B3A900F91868 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				67FF6F831E96C81B0018EB73 /* results_mod.json */,
 				679ED6C91E94B3E700F91868 /* StatusPoll */,
 				679ED6CA1E94B3F200F91868 /* Tracking */,
 				679ED6CB1E94B3F900F91868 /* ServerResult */,
 				679ED6CC1E94B40000F91868 /* ServerResultDictionary */,
 				678731ED1E4AC36200806884 /* NewsXplore.xcdatamodeld */,
+				67FF6F7F1E9585CE0018EB73 /* CoreDataStack.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -360,6 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				678731F41E4AC36200806884 /* LaunchScreen.storyboard in Resources */,
+				67FF6F841E96C81B0018EB73 /* results_mod.json in Resources */,
 				678731F11E4AC36200806884 /* Assets.xcassets in Resources */,
 				678731EC1E4AC36200806884 /* Main.storyboard in Resources */,
 			);
@@ -441,6 +448,7 @@
 				6776CD451E8471FC00EDBBED /* ReportsListTableViewController.swift in Sources */,
 				679ED6C21E94B3CF00F91868 /* StatusPoll+CoreDataProperties.swift in Sources */,
 				679ED6C51E94B3CF00F91868 /* ServerResult+CoreDataClass.swift in Sources */,
+				67FF6F801E9585CE0018EB73 /* CoreDataStack.swift in Sources */,
 				678731E91E4AC36200806884 /* HomeViewController.swift in Sources */,
 				678731E71E4AC36200806884 /* AppDelegate.swift in Sources */,
 				679ED6C11E94B3CF00F91868 /* StatusPoll+CoreDataClass.swift in Sources */,

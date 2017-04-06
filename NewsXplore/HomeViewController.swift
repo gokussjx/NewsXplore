@@ -17,6 +17,7 @@ class HomeViewController: UIViewController {
     
     // Sample URL. 
     // TODO: Change to dev.newsxplore.com
+//    let baseUrl = "https://jsonplaceholder.typicode.com/posts/1"
     let baseUrl = "https://jsonplaceholder.typicode.com/posts/1"
     
     override func viewDidLoad() {
@@ -46,17 +47,19 @@ class HomeViewController: UIViewController {
 //            print("Result: ", terminator: "")
 //            print(response.result)    // result of response serialization
             
-            if let json = response.result.value as? [String : Any] {
-                let title = json["title"] as? String
-                let userId = json["userId"] as? Int
-                let id = json["id"] as? Int
-                let body = json["body"] as? String
-                
-                print("Title: \(title!)")
-                print("UserID: \(userId!)")
-                print("ID: \(id!)")
-                print("Body: \(body!)")
-            }
+//            if let json = response.result.value as? [String : Any] {
+//                let title = json["title"] as? String
+//                let userId = json["userId"] as? Int
+//                let id = json["id"] as? Int
+//                let body = json["body"] as? String
+//                
+//                print("Title: \(title!)")
+//                print("UserID: \(userId!)")
+//                print("ID: \(id!)")
+//                print("Body: \(body!)")
+//            }
+            
+            
         }
     }
 }

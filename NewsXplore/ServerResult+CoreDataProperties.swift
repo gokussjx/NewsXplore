@@ -16,12 +16,12 @@ extension ServerResult {
         return NSFetchRequest<ServerResult>(entityName: "ServerResult")
     }
 
+    @NSManaged public var isContradictionString: String?
+    @NSManaged public var isEntailmentString: String?
+    @NSManaged public var isNeutralString: String?
+    @NSManaged public var mostLikely: String?
     @NSManaged public var source: String?
     @NSManaged public var value: String?
-    @NSManaged public var isNeutral: Bool
-    @NSManaged public var isEntailment: Bool
-    @NSManaged public var isContradiction: Bool
-    @NSManaged public var mostLikely: String?
     @NSManaged public var resultDictionary: ServerResultDictionary?
 
 }
