@@ -98,7 +98,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Home" id="06p-rd-g5T"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="home-7.png" id="06p-rd-g5T"/>
                     <connections>
                         <outlet property="analyzeButton" destination="zbw-Yi-7c4" id="N75-vQ-wM5"/>
                         <outlet property="clearButton" destination="41r-JC-RmT" id="FHP-xf-FNh"/>
@@ -132,7 +132,7 @@
                             <outlet property="delegate" destination="JFv-o4-KyO" id="yxh-fG-jCE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Reports" id="adJ-9y-eCS"/>
+                    <tabBarItem key="tabBarItem" title="Reports" image="file-three-7.png" id="adJ-9y-eCS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hIm-tz-hwQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -151,7 +151,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="2" title="Account" id="73S-LS-wnl"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="Account" image="circle-user-7.png" id="73S-LS-wnl"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiv-PW-ZJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,4 +178,9 @@
             <point key="canvasLocation" x="772" y="480.80959520239884"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle-user-7.png" width="30" height="30"/>
+        <image name="file-three-7.png" width="30" height="30"/>
+        <image name="home-7.png" width="30" height="30"/>
+    </resources>
 </document>

@@ -27,6 +27,9 @@
 		679ED6D01E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679ED6CE1E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift */; };
 		67FF6F801E9585CE0018EB73 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FF6F7F1E9585CE0018EB73 /* CoreDataStack.swift */; };
 		67FF6F841E96C81B0018EB73 /* results_mod.json in Resources */ = {isa = PBXBuildFile; fileRef = 67FF6F831E96C81B0018EB73 /* results_mod.json */; };
+		67FF6F871E970E570018EB73 /* circle-user-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 67FF6F861E970E570018EB73 /* circle-user-7.png */; };
+		67FF6F891E970EAF0018EB73 /* file-three-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 67FF6F881E970EAF0018EB73 /* file-three-7.png */; };
+		67FF6F8B1E970ED60018EB73 /* home-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 67FF6F8A1E970ED60018EB73 /* home-7.png */; };
 		C58E367DAB9F52AECDB7247F /* Pods_NewsXplore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E94215E5104662B71F6C6953 /* Pods_NewsXplore.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +78,9 @@
 		679ED6CE1E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ServerResultDictionary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		67FF6F7F1E9585CE0018EB73 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		67FF6F831E96C81B0018EB73 /* results_mod.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = results_mod.json; path = ../../../../results_mod.json; sourceTree = "<group>"; };
+		67FF6F861E970E570018EB73 /* circle-user-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle-user-7.png"; path = "../../iconbeast-lite-200/iconbeast lite 200 - png/circle-user-7.png"; sourceTree = "<group>"; };
+		67FF6F881E970EAF0018EB73 /* file-three-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "file-three-7.png"; path = "../../iconbeast-lite-200/iconbeast lite 200 - png/file-three-7.png"; sourceTree = "<group>"; };
+		67FF6F8A1E970ED60018EB73 /* home-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home-7.png"; path = "../../iconbeast-lite-200/iconbeast lite 200 - png/home-7.png"; sourceTree = "<group>"; };
 		D4D9EFC37A779C2E7E58FDB8 /* Pods-NewsXplore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsXplore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsXplore/Pods-NewsXplore.debug.xcconfig"; sourceTree = "<group>"; };
 		E94215E5104662B71F6C6953 /* Pods_NewsXplore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsXplore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -157,6 +163,7 @@
 		678731E51E4AC36200806884 /* NewsXplore */ = {
 			isa = PBXGroup;
 			children = (
+				67FF6F851E970DCF0018EB73 /* IconResources */,
 				679ED6B81E94B3A900F91868 /* CoreData */,
 				6776CD471E84724400EDBBED /* Core */,
 				6776CD461E84723800EDBBED /* ReportsList */,
@@ -233,6 +240,16 @@
 				679ED6CE1E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift */,
 			);
 			name = ServerResultDictionary;
+			sourceTree = "<group>";
+		};
+		67FF6F851E970DCF0018EB73 /* IconResources */ = {
+			isa = PBXGroup;
+			children = (
+				67FF6F8A1E970ED60018EB73 /* home-7.png */,
+				67FF6F881E970EAF0018EB73 /* file-three-7.png */,
+				67FF6F861E970E570018EB73 /* circle-user-7.png */,
+			);
+			name = IconResources;
 			sourceTree = "<group>";
 		};
 		ACF3169EE2BAD2C5A407C6D1 /* Pods */ = {
@@ -365,7 +382,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67FF6F871E970E570018EB73 /* circle-user-7.png in Resources */,
 				678731F41E4AC36200806884 /* LaunchScreen.storyboard in Resources */,
+				67FF6F891E970EAF0018EB73 /* file-three-7.png in Resources */,
+				67FF6F8B1E970ED60018EB73 /* home-7.png in Resources */,
 				67FF6F841E96C81B0018EB73 /* results_mod.json in Resources */,
 				678731F11E4AC36200806884 /* Assets.xcassets in Resources */,
 				678731EC1E4AC36200806884 /* Main.storyboard in Resources */,
