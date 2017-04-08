@@ -31,12 +31,18 @@
                                     </constraint>
                                 </constraints>
                                 <state key="normal" title="Paste"/>
+                                <connections>
+                                    <action selector="pasteButton:" destination="FTy-5s-LO0" eventType="touchUpInside" id="rvt-p4-5zy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41r-JC-RmT">
                                 <rect key="frame" x="204" y="53" width="80" height="31"/>
                                 <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButton:" destination="FTy-5s-LO0" eventType="touchUpInside" id="soO-S9-RN8"/>
+                                </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text goes here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-nT-BWd" userLabel="TextSearchBox">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-nT-BWd" userLabel="TextSearchBox">
                                 <rect key="frame" x="36" y="100" width="248" height="200"/>
                                 <color key="backgroundColor" red="0.97392152320000003" green="0.97392152320000003" blue="0.97392152320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -103,6 +109,7 @@
                         <outlet property="analyzeButton" destination="zbw-Yi-7c4" id="N75-vQ-wM5"/>
                         <outlet property="clearButton" destination="41r-JC-RmT" id="FHP-xf-FNh"/>
                         <outlet property="pasteButton" destination="oRL-0J-Rx6" id="vnR-NJ-mpV"/>
+                        <outlet property="textView" destination="cMn-nT-BWd" id="XiV-k8-D0p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2dF-o1-l9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
