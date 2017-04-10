@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16D32" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ServerResult" representedClassName="ServerResult" syncable="YES">
         <attribute name="isContradictionString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isEntailmentString" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,15 +19,17 @@
         <attribute name="errorMessage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="resultsDictionary" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServerResultDictionary" inverseName="statusPoll" inverseEntity="ServerResultDictionary" syncable="YES"/>
+        <relationship name="tracking" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tracking" inverseName="statusPoll" inverseEntity="Tracking" syncable="YES"/>
     </entity>
     <entity name="Tracking" representedClassName="Tracking" syncable="YES">
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trackingId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="statusPoll" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusPoll" inverseName="tracking" inverseEntity="StatusPoll" syncable="YES"/>
     </entity>
     <elements>
         <element name="ServerResult" positionX="160" positionY="198" width="128" height="150"/>
         <element name="ServerResultDictionary" positionX="-74" positionY="108" width="128" height="105"/>
-        <element name="StatusPoll" positionX="-270" positionY="108" width="128" height="90"/>
-        <element name="Tracking" positionX="-279" positionY="-18" width="128" height="75"/>
+        <element name="StatusPoll" positionX="-270" positionY="108" width="128" height="105"/>
+        <element name="Tracking" positionX="-279" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

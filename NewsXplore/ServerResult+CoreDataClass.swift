@@ -12,8 +12,6 @@ import CoreData
 @objc(ServerResult)
 public class ServerResult: NSManagedObject {
     
-    // TODO: Check that the inverse relationship to ServerResultDictionary is added
-    
     var isNeutral: Bool? {
         get {
             guard let isNeutralString = self.isNeutralString else {
@@ -82,7 +80,7 @@ public class ServerResult: NSManagedObject {
         self.isEntailmentString = json?["is_entailment"] as? String
         self.isContradictionString = json?["is_contradiction"] as? String
         self.mostLikely = json?["most_likely"] as? String
+        
+        CoreDataStack.sharedInstance.saveContext()
     }
 }
-
-//    @NSManaged public var resultDictionary: ServerResultDictionary?

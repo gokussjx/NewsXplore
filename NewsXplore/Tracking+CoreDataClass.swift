@@ -12,6 +12,7 @@ import CoreData
 @objc(Tracking)
 public class Tracking: NSManagedObject {
     
+    @discardableResult
     convenience init?(json: [String: Any]?) {
         guard let context = CoreDataStack.sharedInstance.managedContext else {
             return nil
@@ -25,5 +26,7 @@ public class Tracking: NSManagedObject {
     func parseAndStore(json: [String: Any]?) {
         self.status = json?["status"] as? String
         self.trackingId = json?["data"] as? String
+        
+//        CoreDataStack.sharedInstance.saveContext()
     }
 }

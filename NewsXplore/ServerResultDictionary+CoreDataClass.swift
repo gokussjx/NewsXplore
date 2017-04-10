@@ -11,9 +11,7 @@ import CoreData
 
 @objc(ServerResultDictionary)
 public class ServerResultDictionary: NSManagedObject {
-    
-    // TODO: Check that the inverse relationship to StatusPoll is added
-    
+
     var resultsArray: [ServerResult]? {
         return self.results?.allObjects as? [ServerResult]
     }
@@ -34,22 +32,12 @@ public class ServerResultDictionary: NSManagedObject {
         if let results = json?["statements"] as? [[String: Any]?] {
             for result in results {
                 if let result = ServerResult(json: result) {
-                    // TODO: Check that the inverse relationship to this ServerResultDictionary is added
                     addToResults(result)
                 }
             }
         }
-        //        if let results = json?["data"] as? [String: Any]? {
-        //            for result in (results?.values)! {
-        //                if let result = ServerResult(json: result as? [String: Any]) {
-        //                    // TODO: Check that the inverse relationship to this ServerResultDictionary is added
-        //                    addToResults(result)
-        //                }
-        //            }
-        //        }
         
+        CoreDataStack.sharedInstance.saveContext()
     }
     
-    //    @NSManaged public var results: NSSet?
-    //    @NSManaged public var statusPoll: StatusPoll?
 }

@@ -68,6 +68,69 @@ class CoreDataStack {
 //        }
 //    }
     
+    @discardableResult
+    func updateOrInsertTracking(json: [String: Any]?) -> Tracking? {
+        
+        guard let trackingId = json?["data"] as? String else {
+            return nil
+        }
+        
+        var tracking: Tracking?
+        
+        let fetchRequest: NSFetchRequest<Tracking> = Tracking.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "trackingId == %@", trackingId)
+
+        // let trackingEntities = try fetchRequest.execute()
+        guard let trackingEntities = try? managedContext?.fetch(fetchRequest) ?? [] else {
+            return nil
+        }
+        
+        if trackingEntities.count == 0 {
+            tracking = Tracking(json: json)
+        } else if trackingEntities.count == 1 {
+            tracking = trackingEntities[0]
+            tracking?.parseAndStore(json: json)
+        } else {
+            debugPrint("More than one Tracking entities with same trackingID!")
+        }
+        
+        saveContext()
+        
+        return tracking
+    }
+    
+    @discardableResult
+    func updateOrInsertStatusPoll(json: [String: Any]?, tracking: Tracking?) -> StatusPoll? {
+        
+        guard let trackingId = tracking?.trackingId else {
+            return nil
+        }
+        
+        var statusPoll: StatusPoll?
+        
+        let fetchRequest: NSFetchRequest<StatusPoll> = StatusPoll.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "ANY tracking.trackingId == %@", trackingId)
+        
+        guard let statusPollEntities = try? managedContext?.fetch(fetchRequest) ?? [] else {
+            return nil
+        }
+        
+        if statusPollEntities.count == 0 {
+            statusPoll = StatusPoll(json: json)
+            tracking?.statusPoll = statusPoll
+        } else if statusPollEntities.count == 1 {
+            statusPoll = statusPollEntities[0]
+            statusPoll?.parseAndStore(json: json)
+            tracking?.statusPoll = statusPoll   // Might be unnecessary
+        } else {
+            debugPrint("More than one StatusPoll entities with same trackingID!")
+        }
+        
+        saveContext()
+        
+        return statusPoll
+    }
+    
     func saveContext() {
         guard let context = managedContext,
             context.hasChanges else { return }

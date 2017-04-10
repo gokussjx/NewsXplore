@@ -15,12 +15,15 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pasteButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var textView: UITextView!
+    
+    let coreDataStack = CoreDataStack.sharedInstance
     var placeholderLabel: UILabel!
+    var success = false
     
     // Sample URL.
     // TODO: Change to dev.newsxplore.com
     //    let baseUrl = "https://jsonplaceholder.typicode.com/posts/1"
-    let baseUrl = "localhost:8084"
+    let baseUrl = "http://localhost:8084"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +32,8 @@ class HomeViewController: UIViewController {
         analyzeButton.layer.cornerRadius = 7
         
         textView.delegate = self
-        placeholderLabel = UILabel()
-        placeholderLabel.text = "Enter text here..."
-//        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
-        placeholderLabel.font = UIFont.systemFont(ofSize: (textView.font?.pointSize)!)
-        placeholderLabel.sizeToFit()
-        textView.addSubview(placeholderLabel)
-        placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
-        placeholderLabel.textColor = UIColor.lightGray
-        placeholderLabel.isHidden = !textView.text.isEmpty
+        
+        setPlaceholder()
         
         // Hide keyboard on tapping any empty space on the screen
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
@@ -46,6 +42,18 @@ class HomeViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setPlaceholder() {
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Enter text here..."
+        //        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
+        placeholderLabel.font = UIFont.systemFont(ofSize: (textView.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        textView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !textView.text.isEmpty
     }
     
     func dismissKeyboard() {
@@ -64,46 +72,76 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func analyzeButton(_ sender: UIButton) {
+        httpPostAnalyze()
+    }
+    
+    func httpPostAnalyze() {
         
+        var tracking: Tracking?
         
-        //        Alamofire.request().responseJSON { response in
+        let parameters: Parameters = [
+            "stmt": "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees.",
+            "tags": "H1B-visa",
+            "limit": "src|most_likely"
+        ]
         
-        //            print("Request: ", terminator: "")
-        //            print(response.request ?? "Request not found")  // original URL request
-        //
-        //            print("Response: ", terminator: "")
-        //            print(response.response ?? "Response not found")// HTTP URL response
-        //
-        //            print("Data: ", terminator: "")
-        //            print(response.data ?? "Data not found")        // server data
-        //
-        //            print("Result: ", terminator: "")
-        //            print(response.result)    // result of response serialization
+        Alamofire.request(baseUrl.appending("/analyze"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            if let json = response.result.value as? [String: Any] {
+//                guard let trackingID = json["data"] as? String else {
+//                    return
+//                }
+                
+                tracking = self.coreDataStack.updateOrInsertTracking(json: json)
+//                while !self.success {
+                    // CAUTION: TODO: Better handling. This is BAD!
+                    self.httpGetAnalyzedData(tracking: tracking)
+//                }
+            }
+        }
         
-        //            if let json = response.result.value as? [String : Any] {
-        //                let title = json["title"] as? String
-        //                let userId = json["userId"] as? Int
-        //                let id = json["id"] as? Int
-        //                let body = json["body"] as? String
-        //
-        //                print("Title: \(title!)")
-        //                print("UserID: \(userId!)")
-        //                print("ID: \(id!)")
-        //                print("Body: \(body!)")
-        //            }
-        //        }
+//        if tracking == nil {
+//            return
+//        }
+        // Add hash of parameters as an attribute in Tracking maybe?
+        // Or, ADD THE TRACKING ID AS AN ATTRIBUTE TO StatusPoll! 
         
-//        var statusPoll = StatusPoll()
-//        //        var newsCategories = [NewsCategory]()
-//        if let path = Bundle.main.path(forResource: "results_mod", ofType: "json"),
-//            let data = try? Data(contentsOf: URL(fileURLWithPath: path)){
-//            if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                statusPoll = StatusPoll(json: json!)!
+//        while true {
+//            // CAUTION: TODO: Better handling. This is BAD!
+//            let success = httpGetAnalyzedData(tracking: tracking)
+//            if success {
+//                break
 //            }
 //        }
-//        
-//        let _ = 5
     }
+    
+    func httpGetAnalyzedData(tracking: Tracking?) {
+        guard let trackingID = tracking?.trackingId else {
+            // CAUTION: TODO: Better handling. This is BAD!
+            return
+        }
+        
+        Alamofire.request(baseUrl.appending("/r/\(trackingID)")).responseJSON { response in
+            
+//            guard let statusCode = response.response?.statusCode else {
+//                return
+//            }
+//            
+//            if statusCode == 202 {
+//                return
+//            }
+            
+            if let json = response.result.value as? [String: Any] {
+                // Successful relationship?
+                self.coreDataStack.updateOrInsertStatusPoll(json: json, tracking: tracking)
+//                tracking?.statusPoll = StatusPoll(json: json)
+//                self.success = true
+            }
+            
+        }
+        
+        _ = 5
+    }
+    
 }
 
 extension HomeViewController: UITextViewDelegate {
@@ -111,7 +149,6 @@ extension HomeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
-    
     
 }
 

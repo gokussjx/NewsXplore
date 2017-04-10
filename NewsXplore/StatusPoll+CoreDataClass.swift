@@ -16,7 +16,7 @@ public class StatusPoll: NSManagedObject {
         return self.resultsDictionary?.allObjects as? [ServerResultDictionary]
     }
     
-    convenience init?(json: [String: Any]) {
+    convenience init?(json: [String: Any]?) {
         guard let context = CoreDataStack.sharedInstance.managedContext else {
             return nil
         }
@@ -26,22 +26,18 @@ public class StatusPoll: NSManagedObject {
         parseAndStore(json: json)
     }
     
-    func parseAndStore(json: [String: Any]) {
-        self.status = json["status"] as? String
-        self.errorMessage = json["msg"] as? String
+    func parseAndStore(json: [String: Any]?) {
+        self.status = json?["status"] as? String
+        self.errorMessage = json?["msg"] as? String
         
-        if let resultDicts = json["data"] as? [[String: Any]?] {
+        if let resultDicts = json?["data"] as? [[String: Any]?] {
             for resultDict in resultDicts {
                 if let resultDict = ServerResultDictionary(json: resultDict) {
-                    // TODO: Check that the inverse relationship to this StatusPoll is added
                     addToResultsDictionary(resultDict)
                 }
-//                if let resultDict = ServerResultDictionary(json: resultDict, statusPoll: self) {
-//                    addToResultsDictionary(resultDict)
-//                }
             }
         }
         
-        
+        CoreDataStack.sharedInstance.saveContext()
     }
 }
