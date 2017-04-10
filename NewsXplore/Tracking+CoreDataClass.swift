@@ -26,7 +26,5 @@ public class Tracking: NSManagedObject {
     func parseAndStore(json: [String: Any]?) {
         self.status = json?["status"] as? String
         self.trackingId = json?["data"] as? String
-        
-//        CoreDataStack.sharedInstance.saveContext()
     }
 }

@@ -22,7 +22,6 @@ class HomeViewController: UIViewController {
     
     // Sample URL.
     // TODO: Change to dev.newsxplore.com
-    //    let baseUrl = "https://jsonplaceholder.typicode.com/posts/1"
     let baseUrl = "http://localhost:8084"
     
     override func viewDidLoad() {
@@ -87,31 +86,12 @@ class HomeViewController: UIViewController {
         
         Alamofire.request(baseUrl.appending("/analyze"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             if let json = response.result.value as? [String: Any] {
-//                guard let trackingID = json["data"] as? String else {
-//                    return
-//                }
                 
                 tracking = self.coreDataStack.updateOrInsertTracking(json: json)
-//                while !self.success {
-                    // CAUTION: TODO: Better handling. This is BAD!
+                    // TODO: Need better handling
                     self.httpGetAnalyzedData(tracking: tracking)
-//                }
             }
         }
-        
-//        if tracking == nil {
-//            return
-//        }
-        // Add hash of parameters as an attribute in Tracking maybe?
-        // Or, ADD THE TRACKING ID AS AN ATTRIBUTE TO StatusPoll! 
-        
-//        while true {
-//            // CAUTION: TODO: Better handling. This is BAD!
-//            let success = httpGetAnalyzedData(tracking: tracking)
-//            if success {
-//                break
-//            }
-//        }
     }
     
     func httpGetAnalyzedData(tracking: Tracking?) {
@@ -122,24 +102,18 @@ class HomeViewController: UIViewController {
         
         Alamofire.request(baseUrl.appending("/r/\(trackingID)")).responseJSON { response in
             
-//            guard let statusCode = response.response?.statusCode else {
-//                return
-//            }
-//            
-//            if statusCode == 202 {
-//                return
-//            }
-            
-            if let json = response.result.value as? [String: Any] {
-                // Successful relationship?
-                self.coreDataStack.updateOrInsertStatusPoll(json: json, tracking: tracking)
-//                tracking?.statusPoll = StatusPoll(json: json)
-//                self.success = true
+            guard let statusCode = response.response?.statusCode else {
+                return
+            }
+
+            if statusCode == 202 {
+                return
             }
             
+            if let json = response.result.value as? [String: Any] {
+                self.coreDataStack.updateOrInsertStatusPoll(json: json, tracking: tracking)
+            }
         }
-        
-        _ = 5
     }
     
 }

@@ -32,41 +32,41 @@ class CoreDataStack {
     }
     
     // MARK: - Core Data Functions
-//    func loadData() {
-//        let coreDataLoadedKey = "hasLoadedCoreData"
-//        
-//        guard !UserDefaults.standard.bool(forKey: coreDataLoadedKey) else { return }
-//        
-//        let newsCategories = NewsJSONLoader.load(fileName: "news")
-//        
-//        for newsCategory in newsCategories {
-//            if let category = Category(title: newsCategory.title) {
-//                for newsArticle in newsCategory.articles {
-//                    if let article = Article(title: newsArticle.title, date: newsArticle.date) {
-//                        category.addToArticles(article)
-//                    }
-//                }
-//            }
-//        }
-//        
-//        do {
-//            try self.managedContext?.save()
-//            
-//            UserDefaults.standard.set(true, forKey: coreDataLoadedKey)
-//        } catch {
-//            return
-//        }
-//    }
-//    
-//    
-//    func fetchCategories() -> [Category] {
-//        do {
-//            let array = try managedContext?.fetch(Category.fetchRequest()) ?? []
-//            return array
-//        } catch {
-//            return []
-//        }
-//    }
+    //    func loadData() {
+    //        let coreDataLoadedKey = "hasLoadedCoreData"
+    //
+    //        guard !UserDefaults.standard.bool(forKey: coreDataLoadedKey) else { return }
+    //
+    //        let newsCategories = NewsJSONLoader.load(fileName: "news")
+    //
+    //        for newsCategory in newsCategories {
+    //            if let category = Category(title: newsCategory.title) {
+    //                for newsArticle in newsCategory.articles {
+    //                    if let article = Article(title: newsArticle.title, date: newsArticle.date) {
+    //                        category.addToArticles(article)
+    //                    }
+    //                }
+    //            }
+    //        }
+    //
+    //        do {
+    //            try self.managedContext?.save()
+    //
+    //            UserDefaults.standard.set(true, forKey: coreDataLoadedKey)
+    //        } catch {
+    //            return
+    //        }
+    //    }
+    //
+    //
+    //    func fetchCategories() -> [Category] {
+    //        do {
+    //            let array = try managedContext?.fetch(Category.fetchRequest()) ?? []
+    //            return array
+    //        } catch {
+    //            return []
+    //        }
+    //    }
     
     @discardableResult
     func updateOrInsertTracking(json: [String: Any]?) -> Tracking? {
@@ -77,11 +77,8 @@ class CoreDataStack {
         
         var tracking: Tracking?
         
-        let fetchRequest: NSFetchRequest<Tracking> = Tracking.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "trackingId == %@", trackingId)
-
         // let trackingEntities = try fetchRequest.execute()
-        guard let trackingEntities = try? managedContext?.fetch(fetchRequest) ?? [] else {
+        guard let trackingEntities = fetchTrackings(trackingId: trackingId) else {
             return nil
         }
         
@@ -102,16 +99,9 @@ class CoreDataStack {
     @discardableResult
     func updateOrInsertStatusPoll(json: [String: Any]?, tracking: Tracking?) -> StatusPoll? {
         
-        guard let trackingId = tracking?.trackingId else {
-            return nil
-        }
-        
         var statusPoll: StatusPoll?
-        
-        let fetchRequest: NSFetchRequest<StatusPoll> = StatusPoll.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "ANY tracking.trackingId == %@", trackingId)
-        
-        guard let statusPollEntities = try? managedContext?.fetch(fetchRequest) ?? [] else {
+
+        guard let statusPollEntities = fetchStatusPolls(tracking: tracking) else {
             return nil
         }
         
@@ -129,6 +119,46 @@ class CoreDataStack {
         saveContext()
         
         return statusPoll
+    }
+    
+    func fetchTrackings() -> [Tracking] {
+        do {
+            let trackingArray = try managedContext?.fetch(Tracking.fetchRequest()) ?? []
+            return trackingArray
+        } catch {
+            return []
+        }
+    }
+    
+    func fetchTrackings(trackingId: String) -> [Tracking]? {
+        do {
+            let fetchRequest: NSFetchRequest<Tracking> = Tracking.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "trackingId == %@", trackingId)
+            let trackingArray = try managedContext?.fetch(fetchRequest) ?? []
+            return trackingArray
+        } catch {
+            return []
+        }
+    }
+    
+    func fetchStatusPolls() -> [StatusPoll] {
+        do {
+            let statusPollArray = try managedContext?.fetch(StatusPoll.fetchRequest()) ?? []
+            return statusPollArray
+        } catch {
+            return []
+        }
+    }
+    
+    func fetchStatusPolls(tracking: Tracking?) -> [StatusPoll]? {
+        do {
+            let fetchRequest: NSFetchRequest<StatusPoll> = StatusPoll.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "ANY tracking.trackingId == %@", tracking!.trackingId!)
+            let statusPollArray = try managedContext?.fetch(StatusPoll.fetchRequest()) ?? []
+            return statusPollArray
+        } catch {
+            return []
+        }
     }
     
     func saveContext() {

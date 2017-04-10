@@ -16,6 +16,7 @@ public class StatusPoll: NSManagedObject {
         return self.resultsDictionary?.allObjects as? [ServerResultDictionary]
     }
     
+    @discardableResult
     convenience init?(json: [String: Any]?) {
         guard let context = CoreDataStack.sharedInstance.managedContext else {
             return nil
@@ -37,7 +38,6 @@ public class StatusPoll: NSManagedObject {
                 }
             }
         }
-        
-        CoreDataStack.sharedInstance.saveContext()
     }
+    
 }
