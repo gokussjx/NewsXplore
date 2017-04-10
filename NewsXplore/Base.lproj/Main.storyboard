@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7P1-FE-r1U">
-    <device id="retina3_5" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7P1-FE-r1U">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,13 +19,15 @@
                         <viewControllerLayoutGuide type="bottom" id="mRF-2e-IN4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DBc-wu-hzX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRL-0J-Rx6">
-                                <rect key="frame" x="36" y="53" width="80" height="31"/>
+                                <rect key="frame" x="36" y="146.5" width="80" height="31"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="m3t-4C-La7"/>
+                                    <constraint firstAttribute="height" constant="31" id="m3t-4C-La7">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="20"/>
+                                    </constraint>
                                     <constraint firstAttribute="width" constant="80" id="ueI-n1-b3U">
                                         <variation key="heightClass=regular-widthClass=regular" constant="150"/>
                                     </constraint>
@@ -36,20 +38,22 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41r-JC-RmT">
-                                <rect key="frame" x="204" y="53" width="80" height="31"/>
+                                <rect key="frame" x="259" y="146.5" width="80" height="31"/>
                                 <state key="normal" title="Clear"/>
                                 <connections>
                                     <action selector="clearButton:" destination="FTy-5s-LO0" eventType="touchUpInside" id="soO-S9-RN8"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-nT-BWd" userLabel="TextSearchBox">
-                                <rect key="frame" x="36" y="100" width="248" height="200"/>
+                                <rect key="frame" x="36" y="193.5" width="303" height="200"/>
                                 <color key="backgroundColor" red="0.97392152320000003" green="0.97392152320000003" blue="0.97392152320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="280" id="Uw1-Gc-tLT">
                                         <variation key="heightClass=regular-widthClass=regular" constant="650"/>
                                     </constraint>
                                     <constraint firstAttribute="height" constant="200" id="ZsM-Vs-fjf">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="100"/>
+                                        <variation key="heightClass=compact-widthClass=regular" constant="150"/>
                                         <variation key="heightClass=regular-widthClass=regular" constant="400"/>
                                     </constraint>
                                 </constraints>
@@ -62,11 +66,13 @@
                                 </variation>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zbw-Yi-7c4">
-                                <rect key="frame" x="73.5" y="326" width="173" height="43"/>
+                                <rect key="frame" x="101" y="472.5" width="173" height="43"/>
                                 <color key="backgroundColor" red="0.23104345800000001" green="0.59902668000000003" blue="0.98928445580000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="173" id="g9N-QS-tfe"/>
-                                    <constraint firstAttribute="height" constant="43" id="tao-Xo-f0d"/>
+                                    <constraint firstAttribute="height" constant="43" id="tao-Xo-f0d">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="35"/>
+                                    </constraint>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
                                 <state key="normal" title="Analyze">
@@ -76,26 +82,37 @@
                                     <action selector="analyzeButton:" destination="FTy-5s-LO0" eventType="touchUpInside" id="lHy-eT-AAw"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tags: (Optional, comma separated)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D6M-YP-O8q">
+                                <rect key="frame" x="36" y="411.5" width="303" height="43"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="41r-JC-RmT" firstAttribute="height" secondItem="oRL-0J-Rx6" secondAttribute="height" id="0Gn-ue-Ye4"/>
-                            <constraint firstItem="cMn-nT-BWd" firstAttribute="centerY" secondItem="DBc-wu-hzX" secondAttribute="centerY" constant="-40" id="2B2-J7-dIY"/>
+                            <constraint firstItem="cMn-nT-BWd" firstAttribute="centerY" secondItem="DBc-wu-hzX" secondAttribute="centerY" constant="-40" id="2B2-J7-dIY">
+                                <variation key="heightClass=compact-widthClass=compact" constant="-55"/>
+                                <variation key="heightClass=compact-widthClass=regular" constant="-50"/>
+                            </constraint>
+                            <constraint firstItem="D6M-YP-O8q" firstAttribute="top" secondItem="cMn-nT-BWd" secondAttribute="bottom" constant="18" id="H9p-BA-vN0"/>
                             <constraint firstItem="41r-JC-RmT" firstAttribute="width" secondItem="oRL-0J-Rx6" secondAttribute="width" id="LaT-Kz-SjP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="cMn-nT-BWd" secondAttribute="trailing" constant="20" id="SRS-0D-Mnc">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
                             <constraint firstItem="41r-JC-RmT" firstAttribute="trailing" secondItem="cMn-nT-BWd" secondAttribute="trailing" id="UVn-ct-Fjj"/>
+                            <constraint firstItem="D6M-YP-O8q" firstAttribute="height" secondItem="zbw-Yi-7c4" secondAttribute="height" id="a1h-Of-NgE"/>
+                            <constraint firstItem="D6M-YP-O8q" firstAttribute="width" secondItem="cMn-nT-BWd" secondAttribute="width" id="bae-a3-46Y"/>
                             <constraint firstItem="cMn-nT-BWd" firstAttribute="leading" secondItem="DBc-wu-hzX" secondAttribute="leadingMargin" constant="20" id="bh6-x3-jqb">
                                 <variation key="heightClass=regular-widthClass=regular" constant="100"/>
                             </constraint>
-                            <constraint firstItem="zbw-Yi-7c4" firstAttribute="top" secondItem="cMn-nT-BWd" secondAttribute="bottom" constant="26" id="iMB-ft-y1v">
-                                <variation key="heightClass=regular-widthClass=regular" constant="50"/>
-                            </constraint>
+                            <constraint firstItem="zbw-Yi-7c4" firstAttribute="top" secondItem="D6M-YP-O8q" secondAttribute="bottom" constant="18" id="ggW-Fd-kIp"/>
                             <constraint firstItem="zbw-Yi-7c4" firstAttribute="centerX" secondItem="DBc-wu-hzX" secondAttribute="centerX" id="iMg-A3-kzI"/>
                             <constraint firstItem="cMn-nT-BWd" firstAttribute="top" secondItem="41r-JC-RmT" secondAttribute="bottom" constant="16" id="iZp-jj-IF2">
                                 <variation key="heightClass=regular-widthClass=regular" constant="38"/>
                             </constraint>
+                            <constraint firstItem="D6M-YP-O8q" firstAttribute="centerX" secondItem="DBc-wu-hzX" secondAttribute="centerX" id="jK1-U7-HVx"/>
                             <constraint firstItem="cMn-nT-BWd" firstAttribute="top" secondItem="oRL-0J-Rx6" secondAttribute="bottom" constant="16" id="tfG-Mr-dAU">
                                 <variation key="heightClass=regular-widthClass=regular" constant="38"/>
                             </constraint>
@@ -109,6 +126,7 @@
                         <outlet property="analyzeButton" destination="zbw-Yi-7c4" id="N75-vQ-wM5"/>
                         <outlet property="clearButton" destination="41r-JC-RmT" id="FHP-xf-FNh"/>
                         <outlet property="pasteButton" destination="oRL-0J-Rx6" id="vnR-NJ-mpV"/>
+                        <outlet property="tagsTextField" destination="D6M-YP-O8q" id="d4S-Ry-E0s"/>
                         <outlet property="textView" destination="cMn-nT-BWd" id="XiV-k8-D0p"/>
                     </connections>
                 </viewController>
@@ -121,15 +139,15 @@
             <objects>
                 <tableViewController id="JFv-o4-KyO" customClass="ReportListTableViewController" customModule="NewsXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="e4J-Al-aoW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportsListTableViewCell" id="IE0-0b-il1" customClass="ReportsListTableViewCell" customModule="NewsXplore" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IE0-0b-il1" id="8Al-BX-qZd">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -154,7 +172,7 @@
                         <viewControllerLayoutGuide type="bottom" id="PEd-oV-czc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Wmh-mo-bJV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

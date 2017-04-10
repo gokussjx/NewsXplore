@@ -15,6 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pasteButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var tagsTextField: UITextField!
     
     let coreDataStack = CoreDataStack.sharedInstance
     var placeholderLabel: UILabel!
