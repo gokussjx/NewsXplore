@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		67337C851EA1BC3700CD2994 /* ReportDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67337C841EA1BC3700CD2994 /* ReportDetailViewController.swift */; };
+		67337C891EA1C01400CD2994 /* ReportOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67337C881EA1C01400CD2994 /* ReportOverviewViewController.swift */; };
+		67337C8B1EA1C0DA00CD2994 /* ReportSourcesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67337C8A1EA1C0DA00CD2994 /* ReportSourcesTableViewController.swift */; };
 		67356EA61E7E0E4200C81468 /* ReportsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67356EA51E7E0E4200C81468 /* ReportsListTableViewCell.swift */; };
 		6776CD451E8471FC00EDBBED /* ReportsListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6776CD441E8471FC00EDBBED /* ReportsListTableViewController.swift */; };
 		678731E71E4AC36200806884 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678731E61E4AC36200806884 /* AppDelegate.swift */; };
@@ -52,6 +55,9 @@
 
 /* Begin PBXFileReference section */
 		33C082DDFCB710A22EBAE4A6 /* Pods-NewsXplore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsXplore.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsXplore/Pods-NewsXplore.release.xcconfig"; sourceTree = "<group>"; };
+		67337C841EA1BC3700CD2994 /* ReportDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportDetailViewController.swift; sourceTree = "<group>"; };
+		67337C881EA1C01400CD2994 /* ReportOverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportOverviewViewController.swift; sourceTree = "<group>"; };
+		67337C8A1EA1C0DA00CD2994 /* ReportSourcesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportSourcesTableViewController.swift; sourceTree = "<group>"; };
 		67356EA51E7E0E4200C81468 /* ReportsListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsListTableViewCell.swift; sourceTree = "<group>"; };
 		6776CD441E8471FC00EDBBED /* ReportsListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportsListTableViewController.swift; sourceTree = "<group>"; };
 		678731E31E4AC36200806884 /* NewsXplore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsXplore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +118,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		67337C861EA1BC4700CD2994 /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				67337C871EA1BC5700CD2994 /* ReportDetails */,
+				6776CD461E84723800EDBBED /* ReportsList */,
+			);
+			name = Reports;
+			sourceTree = "<group>";
+		};
+		67337C871EA1BC5700CD2994 /* ReportDetails */ = {
+			isa = PBXGroup;
+			children = (
+				67337C841EA1BC3700CD2994 /* ReportDetailViewController.swift */,
+				67337C881EA1C01400CD2994 /* ReportOverviewViewController.swift */,
+				67337C8A1EA1C0DA00CD2994 /* ReportSourcesTableViewController.swift */,
+			);
+			name = ReportDetails;
+			sourceTree = "<group>";
+		};
 		6776CD461E84723800EDBBED /* ReportsList */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +193,7 @@
 				67FF6F851E970DCF0018EB73 /* IconResources */,
 				679ED6B81E94B3A900F91868 /* CoreData */,
 				6776CD471E84724400EDBBED /* Core */,
-				6776CD461E84723800EDBBED /* ReportsList */,
+				67337C861EA1BC4700CD2994 /* Reports */,
 				6776CD481E84729900EDBBED /* Storyboard */,
 				678731F01E4AC36200806884 /* Assets.xcassets */,
 				678731F51E4AC36200806884 /* Info.plist */,
@@ -474,10 +499,13 @@
 				679ED6D01E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift in Sources */,
 				6776CD451E8471FC00EDBBED /* ReportsListTableViewController.swift in Sources */,
 				679ED6C21E94B3CF00F91868 /* StatusPoll+CoreDataProperties.swift in Sources */,
+				67337C851EA1BC3700CD2994 /* ReportDetailViewController.swift in Sources */,
 				679ED6C51E94B3CF00F91868 /* ServerResult+CoreDataClass.swift in Sources */,
 				67FF6F801E9585CE0018EB73 /* CoreDataStack.swift in Sources */,
+				67337C8B1EA1C0DA00CD2994 /* ReportSourcesTableViewController.swift in Sources */,
 				678731E91E4AC36200806884 /* HomeViewController.swift in Sources */,
 				678731E71E4AC36200806884 /* AppDelegate.swift in Sources */,
+				67337C891EA1C01400CD2994 /* ReportOverviewViewController.swift in Sources */,
 				679ED6C11E94B3CF00F91868 /* StatusPoll+CoreDataClass.swift in Sources */,
 				679ED6CF1E94B43400F91868 /* ServerResultDictionary+CoreDataClass.swift in Sources */,
 				679ED6C31E94B3CF00F91868 /* Tracking+CoreDataClass.swift in Sources */,

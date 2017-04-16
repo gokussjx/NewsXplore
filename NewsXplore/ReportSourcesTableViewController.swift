@@ -1,14 +1,14 @@
 //
-//  ReportListTableViewController.swift
+//  ReportOverviewTableViewController.swift
 //  NewsXplore
 //
-//  Created by Bidyut Mukherjee on 3/23/17.
+//  Created by Bidyut Mukherjee on 4/14/17.
 //  Copyright © 2017 NewsXplore. All rights reserved.
 //
 
 import UIKit
 
-class ReportListTableViewController: UITableViewController {
+class ReportSourcesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,25 +29,23 @@ class ReportListTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReportsListTableViewCell", for: indexPath)
-        
-        cell.textLabel?.text = "Test Label"
-        cell.detailTextLabel?.text = "Detail Label"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
         // Configure the cell...
 
         return cell
     }
- 
+    */
 
     /*
     // Override to support conditional editing of the table view.
