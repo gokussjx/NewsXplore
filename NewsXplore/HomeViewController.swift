@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import ReachabilitySwift
 
 class HomeViewController: UIViewController {
     
@@ -72,7 +73,17 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func analyzeButton(_ sender: UIButton) {
-        httpPostAnalyze()
+        let reachability = Reachability()!
+        if reachability.isReachable {
+            httpPostAnalyze()
+        } else {
+            // TODO: Implement Queue
+        
+            // Currently, displaying an alert
+            let alert = UIAlertController(title: "Offline", message: "Unable to connect to internet! Please connect and retry.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func httpPostAnalyze() {

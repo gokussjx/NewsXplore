@@ -5,4 +5,5 @@ use_frameworks!
 target 'NewsXplore' do
     pod 'Alamofire', '~> 4.3'
     pod 'IQKeyboardManagerSwift'
+    pod 'ReachabilitySwift', '~> 3'
 end
