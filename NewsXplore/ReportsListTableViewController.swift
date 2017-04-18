@@ -21,16 +21,9 @@ class ReportListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         searchBar.delegate = self
-//        searchBar.endEditing(true)
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -127,7 +120,7 @@ extension ReportListTableViewController: UISearchBarDelegate {
         searchBar.endEditing(true)
         searchBar.resignFirstResponder()
         searchActive = false
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -141,7 +134,6 @@ extension ReportListTableViewController: UISearchBarDelegate {
                 return true
             }
             return false
-//            return range.location != NSNotFound
         })
         
         if filtered.count == 0 {

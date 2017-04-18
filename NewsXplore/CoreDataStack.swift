@@ -84,7 +84,7 @@ class CoreDataStack {
         
         if trackingEntities.count == 0 {
             let date: Date? = Date()
-            tracking = Tracking(json: json, text: text, postDate: date, analysisState: "In Progress")
+            tracking = Tracking(json: json, text: text, postDate: date)
         } else if trackingEntities.count == 1 {
             tracking = trackingEntities[0]
             tracking?.parseAndStore(json: json)

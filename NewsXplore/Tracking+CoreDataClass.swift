@@ -13,17 +13,17 @@ import CoreData
 public class Tracking: NSManagedObject {
     
     @discardableResult
-    convenience init?(json: [String: Any]?, text: String?, postDate: Date?, analysisState: String?) {
+    convenience init?(json: [String: Any]?, text: String?, postDate: Date?) {
         guard let context = CoreDataStack.sharedInstance.managedContext else {
             return nil
         }
         
         self.init(entity: Tracking.entity(), insertInto: context)
         
-        parseAndStore(json: json, text: text, postDate: postDate, analysisState: analysisState)
+        parseAndStore(json: json, text: text, postDate: postDate)
     }
     
-    func parseAndStore(json: [String: Any]?, text: String? = nil, postDate: Date? = nil, analysisState: String? = nil) {
+    func parseAndStore(json: [String: Any]?, text: String? = nil, postDate: Date? = nil) {
         self.status = json?["status"] as? String
         self.trackingId = json?["data"] as? String
         if let text = text {
@@ -32,8 +32,17 @@ public class Tracking: NSManagedObject {
         if let date = postDate as NSDate? {
             self.postDate = date
         }
-        if let analysisState = analysisState {
-            self.analysisState = analysisState
+        if let status = self.status {
+            switch status {
+            case "pending":
+                self.analysisState = "In Progress"
+                break
+            case "ok":
+                self.analysisState = "Ready"
+                break
+            default:
+                self.analysisState = "Error"
+            }
         }
     }
 }

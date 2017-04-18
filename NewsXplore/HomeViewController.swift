@@ -10,6 +10,17 @@ import UIKit
 import Alamofire
 import ReachabilitySwift
 
+protocol TrackingDelegate: class {
+    func trackingReceiveSuccess(tracking: Tracking?)
+    func trackingReceiveFailed(error: String)
+}
+
+protocol StatusPollDelegate: class {
+    func statusPollPending(tracking: Tracking?)
+    func statusPollSuccess(statusPoll: StatusPoll?)
+    func statusPollReceiveFailed(error: String)
+}
+
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var analyzeButton: UIButton!
@@ -21,6 +32,8 @@ class HomeViewController: UIViewController {
     let coreDataStack = CoreDataStack.sharedInstance
     var placeholderLabel: UILabel!
     var success = false
+    weak var trackingDelegate: TrackingDelegate?
+    weak var statusPollDelegate: StatusPollDelegate?
     
     // Sample URL.
     // TODO: Change to dev.newsxplore.com
@@ -31,6 +44,8 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         analyzeButton.layer.cornerRadius = 7
+        trackingDelegate = self
+        statusPollDelegate = self
         
         textView.delegate = self
         
@@ -77,9 +92,9 @@ class HomeViewController: UIViewController {
         if reachability.isReachable && textView.text.characters.count > 10 {
             let alert = UIAlertController(title: "Sending for analysis", message: "The text is being sent for analysis.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
-                    self.httpPostAnalyze()
-                    self.textView.endEditing(true)
-                    self.textView.resignFirstResponder()
+                self.httpPostAnalyze()
+                self.textView.endEditing(true)
+                self.textView.resignFirstResponder()
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
@@ -109,19 +124,31 @@ class HomeViewController: UIViewController {
         var tracking: Tracking?
         
         let parameters: Parameters = [
-//            "stmt": "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees.",
-//            "tags": "H1B-visa",
+            //            "stmt": "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees.",
+            //            "tags": "H1B-visa",
             "stmt": textView.text,
             "tags": tagsTextField.text ?? "",
             "limit": "src|most_likely"
         ]
         
         Alamofire.request(baseUrl.appending("/analyze"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            if let error = response.error {
+                DispatchQueue.main.async {
+                    self.trackingDelegate?.trackingReceiveFailed(error: error.localizedDescription)
+                }
+            }
+            
             if let json = response.result.value as? [String: Any] {
-                
                 tracking = self.coreDataStack.updateOrInsertTracking(json: json, text: self.textView.text)
                 // TODO: Need better handling
-                self.httpGetAnalyzedData(tracking: tracking)
+                DispatchQueue.main.async {
+                    self.trackingDelegate?.trackingReceiveSuccess(tracking: tracking)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.trackingDelegate?.trackingReceiveFailed(error: "Tracking JSON response parsing failure")
+                }
             }
         }
     }
@@ -138,20 +165,63 @@ class HomeViewController: UIViewController {
                 return
             }
             
-            if statusCode == 202 {
-                return
-            }
-            
             if let json = response.result.value as? [String: Any] {
-                self.coreDataStack.updateOrInsertStatusPoll(json: json, tracking: tracking)
+                
+                let statusPoll = self.coreDataStack.updateOrInsertStatusPoll(json: json, tracking: tracking)
+                
+                if statusCode == 202 {
+                    DispatchQueue.main.async {
+                        self.statusPollDelegate?.statusPollPending(tracking: tracking)
+                    }
+                } else if statusCode == 200 {
+                    DispatchQueue.main.async {
+                        self.statusPollDelegate?.statusPollSuccess(statusPoll: statusPoll)
+                    }
+                } else {
+                    if let error = response.error {
+                        DispatchQueue.main.async {
+                            self.statusPollDelegate?.statusPollReceiveFailed(error: error.localizedDescription)
+                        }
+                    }
+                }
+                
             }
         }
     }
     
 }
 
-extension HomeViewController: UITextViewDelegate {
+extension HomeViewController: TrackingDelegate {
+    func trackingReceiveSuccess(tracking: Tracking?) {
+        if let tracking = tracking {
+            self.httpGetAnalyzedData(tracking: tracking)
+        }
+    }
     
+    func trackingReceiveFailed(error: String) {
+        // ToDo
+        debugPrint("Tracking Error: \(error)")
+    }
+    
+}
+
+extension HomeViewController: StatusPollDelegate {
+    func statusPollPending(tracking: Tracking?) {
+        httpGetAnalyzedData(tracking: tracking)
+    }
+    
+    func statusPollSuccess(statusPoll: StatusPoll?) {
+        // ToDo
+    }
+    
+    func statusPollReceiveFailed(error: String) {
+        // ToDo
+        debugPrint("Tracking Error: \(error)")
+    }
+    
+}
+
+extension HomeViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         placeholderLabel.isHidden = !textView.text.isEmpty
     }
