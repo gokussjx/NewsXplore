@@ -142,9 +142,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search for Reports" id="Mdm-Tv-fm4">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportsListTableViewCell" id="IE0-0b-il1" customClass="ReportsListTableViewCell" customModule="NewsXplore" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IE0-0b-il1" id="8Al-BX-qZd">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -200,7 +209,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reports" id="yR0-fR-E5z"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="moe-LM-z34">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                     <connections>
+                        <outlet property="searchBar" destination="Mdm-Tv-fm4" id="NEl-oa-UrQ"/>
                         <segue destination="dmZ-QR-IAU" kind="show" identifier="showReportDetails" id="U73-Li-TUu"/>
                     </connections>
                 </tableViewController>

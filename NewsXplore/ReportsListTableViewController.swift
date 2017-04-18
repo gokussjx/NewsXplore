@@ -10,11 +10,18 @@ import UIKit
 
 class ReportListTableViewController: UITableViewController {
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searchActive = false
+    var filtered = [Tracking]()
     var trackingArray = [Tracking]()
     var currentTracking: Tracking?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
+//        searchBar.endEditing(true)
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
@@ -28,6 +35,8 @@ class ReportListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         trackingArray = CoreDataStack.sharedInstance.fetchTrackings()
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,7 +52,9 @@ class ReportListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        if searchActive {
+            return filtered.count
+        }
         return trackingArray.count
     }
     
@@ -51,12 +62,25 @@ class ReportListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReportsListTableViewCell", for: indexPath) as! ReportsListTableViewCell
         
         // Configure the cell...
-        let text = trackingArray[indexPath.row].text
+        let trackingArr: [Tracking]
+        if searchActive {
+            trackingArr = filtered
+        } else {
+            trackingArr = trackingArray
+        }
+        
+        let text = trackingArr[indexPath.row].text
         cell.titleLabel.text = (text?.isEmpty)! ? "-" : text
-        cell.dateLabel.text = NXUtil.dateToReadableString(date: trackingArray[indexPath.row].postDate as Date?)
-        cell.statusLabel.text = trackingArray[indexPath.row].analysisState
+        cell.dateLabel.text = NXUtil.dateToReadableString(date: trackingArr[indexPath.row].postDate as Date?)
+        cell.statusLabel.text = trackingArr[indexPath.row].analysisState
         
         return cell
+        
+//
+//            let text = trackingArray[indexPath.row].text
+//            cell.titleLabel.text = (text?.isEmpty)! ? "-" : text
+//            cell.dateLabel.text = NXUtil.dateToReadableString(date: trackingArray[indexPath.row].postDate as Date?)
+//            cell.statusLabel.text = trackingArray[indexPath.row].analysisState
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -84,6 +108,48 @@ class ReportListTableViewController: UITableViewController {
             }
         }
      }
- 
+
+}
+
+extension ReportListTableViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+        searchBar.showsCancelButton = true
+    }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+        searchBar.showsCancelButton = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+        searchActive = false
+        self.tableView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filtered = trackingArray.filter({ tracking -> Bool in
+            let tmp = tracking.text
+            if let _ = tmp?.range(of: searchText, options: .caseInsensitive) {
+                return true
+            }
+            return false
+//            return range.location != NSNotFound
+        })
+        
+        if filtered.count == 0 {
+            searchActive = false
+        } else {
+            searchActive = true
+        }
+        
+        self.tableView.reloadData()
+    }
 }
