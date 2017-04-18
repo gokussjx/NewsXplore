@@ -74,15 +74,27 @@ class HomeViewController: UIViewController {
     
     @IBAction func analyzeButton(_ sender: UIButton) {
         let reachability = Reachability()!
-        if reachability.isReachable {
+        if reachability.isReachable && textView.text.characters.count > 10 {
             httpPostAnalyze()
         } else {
-            // TODO: Implement Queue
-        
-            // Currently, displaying an alert
-            let alert = UIAlertController(title: "Offline", message: "Unable to connect to internet! Please connect and retry.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            if textView.text.isEmpty {
+                let alert = UIAlertController(title: "Empty", message: "Please enter or paste text to analyze.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else if textView.text.characters.count < 10 {
+                let alert = UIAlertController(title: "Too few characters", message: "Please enter or paste more text to analyze.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                return
+            } else { // Offline
+                // TODO: Implement Queue
+                
+                // Currently, displaying an alert
+                let alert = UIAlertController(title: "Offline", message: "Unable to connect to internet! Please connect and retry.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
         }
     }
     
@@ -91,17 +103,19 @@ class HomeViewController: UIViewController {
         var tracking: Tracking?
         
         let parameters: Parameters = [
-            "stmt": "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees.",
-            "tags": "H1B-visa",
+//            "stmt": "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees.",
+//            "tags": "H1B-visa",
+            "stmt": textView.text,
+            "tags": tagsTextField.text ?? "",
             "limit": "src|most_likely"
         ]
         
         Alamofire.request(baseUrl.appending("/analyze"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             if let json = response.result.value as? [String: Any] {
                 
-                tracking = self.coreDataStack.updateOrInsertTracking(json: json)
-                    // TODO: Need better handling
-                    self.httpGetAnalyzedData(tracking: tracking)
+                tracking = self.coreDataStack.updateOrInsertTracking(json: json, text: self.textView.text)
+                // TODO: Need better handling
+                self.httpGetAnalyzedData(tracking: tracking)
             }
         }
     }
@@ -117,7 +131,7 @@ class HomeViewController: UIViewController {
             guard let statusCode = response.response?.statusCode else {
                 return
             }
-
+            
             if statusCode == 202 {
                 return
             }

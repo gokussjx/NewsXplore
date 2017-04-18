@@ -17,7 +17,7 @@ class ReportDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.navigationItem.title = "Report Details"
-        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "share-7.png"), style: .plain, target: self, action: nil)
         // Do any additional setup after loading the view.
     }
 

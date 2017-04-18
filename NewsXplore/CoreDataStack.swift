@@ -69,7 +69,7 @@ class CoreDataStack {
     //    }
     
     @discardableResult
-    func updateOrInsertTracking(json: [String: Any]?) -> Tracking? {
+    func updateOrInsertTracking(json: [String: Any]?, text: String) -> Tracking? {
         
         guard let trackingId = json?["data"] as? String else {
             return nil
@@ -83,7 +83,8 @@ class CoreDataStack {
         }
         
         if trackingEntities.count == 0 {
-            tracking = Tracking(json: json)
+            let date: Date? = Date()
+            tracking = Tracking(json: json, text: text, postDate: date, analysisState: "In Progress")
         } else if trackingEntities.count == 1 {
             tracking = trackingEntities[0]
             tracking?.parseAndStore(json: json)
@@ -124,7 +125,9 @@ class CoreDataStack {
     func fetchTrackings() -> [Tracking] {
         do {
             let trackingArray = try managedContext?.fetch(Tracking.fetchRequest()) ?? []
-            return trackingArray
+            return trackingArray.sorted(by: {t1, t2 in
+                return t1.postDate?.compare(t2.postDate! as Date) == .orderedDescending
+            })
         } catch {
             return []
         }
