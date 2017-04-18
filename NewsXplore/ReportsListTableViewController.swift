@@ -11,6 +11,7 @@ import UIKit
 class ReportListTableViewController: UITableViewController {
     
     var trackingArray = [Tracking]()
+    var currentTracking: Tracking?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,14 +19,15 @@ class ReportListTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
         
-        trackingArray = CoreDataStack.sharedInstance.fetchTrackings()
-        
-        _ = 5
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        trackingArray = CoreDataStack.sharedInstance.fetchTrackings()
     }
     
     override func didReceiveMemoryWarning() {
@@ -59,9 +61,9 @@ class ReportListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let tracking = trackingArray[indexPath.row]
+        currentTracking = trackingArray[indexPath.row]
         
-        if tracking.analysisState != "Ready" {
+        if currentTracking?.analysisState != "Ready" {
             let alert = UIAlertController(title: "In Progress", message: "This request is still being processed. Please try again when the status is \"Ready\"", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -77,7 +79,9 @@ class ReportListTableViewController: UITableViewController {
      // Pass the selected object to the new view controller.
         
         if segue.identifier == "showReportDetails" {
-            
+            if let destReportDetailVC = segue.destination as? ReportDetailViewController {
+                destReportDetailVC.tracking = currentTracking
+            }
         }
      }
  

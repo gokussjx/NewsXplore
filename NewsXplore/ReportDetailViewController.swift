@@ -13,6 +13,8 @@ class ReportDetailViewController: UIViewController {
     @IBOutlet weak var overviewContainer: UIView!
     @IBOutlet weak var sourcesContainer: UIView!
     
+    var tracking: Tracking? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

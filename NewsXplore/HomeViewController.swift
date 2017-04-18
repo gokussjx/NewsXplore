@@ -75,7 +75,13 @@ class HomeViewController: UIViewController {
     @IBAction func analyzeButton(_ sender: UIButton) {
         let reachability = Reachability()!
         if reachability.isReachable && textView.text.characters.count > 10 {
-            httpPostAnalyze()
+            let alert = UIAlertController(title: "Sending for analysis", message: "The text is being sent for analysis.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
+                    self.httpPostAnalyze()
+                    self.textView.endEditing(true)
+                    self.textView.resignFirstResponder()
+            }))
+            self.present(alert, animated: true, completion: nil)
         } else {
             if textView.text.isEmpty {
                 let alert = UIAlertController(title: "Empty", message: "Please enter or paste text to analyze.", preferredStyle: .alert)
