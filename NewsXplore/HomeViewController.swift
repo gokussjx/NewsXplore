@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import ReachabilitySwift
 import UserNotifications
+import Toast_Swift
 
 protocol TrackingDelegate: class {
     func trackingReceiveSuccess(tracking: Tracking?)
@@ -261,13 +262,15 @@ extension HomeViewController: StatusPollDelegate {
     func statusPollSuccess(statusPoll: StatusPoll?) {
         // ToDo
         
+        view.makeToast("A report is ready for you!", duration: 2.0, position: .center)
+        
         if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.getNotificationSettings { (settings) in
-                if settings.authorizationStatus != .authorized {
-                    // Notifications not allowed
-                }
-            }
+            
+            //            center.getNotificationSettings { (settings) in
+            //                if settings.authorizationStatus != .authorized {
+            //                    // Notifications not allowed
+            //                }
+            //            }
             
             let localNotif = UNMutableNotificationContent()
             localNotif.title = NSString.localizedUserNotificationString(forKey: "NewsXplore:", arguments: nil)
@@ -276,10 +279,11 @@ extension HomeViewController: StatusPollDelegate {
             localNotif.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
             localNotif.categoryIdentifier = "edu.missouri.nx"
             // Deliver the notification instantly
-            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1, repeats: false)
-            let request = UNNotificationRequest.init(identifier: "Content Ready", content: localNotif, trigger: trigger)
+            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 2, repeats: false)
+            let request = UNNotificationRequest.init(identifier: "TwoSec", content: localNotif, trigger: trigger)
             
             // Schedule the notification.
+            let center = UNUserNotificationCenter.current()
             center.add(request)
         } else {
             // Older version support

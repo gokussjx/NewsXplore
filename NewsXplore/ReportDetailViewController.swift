@@ -81,7 +81,10 @@ class ReportDetailViewController: UIViewController {
             self.delegate = reportOverviewWebVC
             
         } else if let reportSourcesTableVC = segue.destination as? ReportSourcesTableViewController {
-            reportSourcesTableVC.resultsDict = tracking?.statusPoll?.resultsDictionaryArray
+            if let resultsDict = tracking?.statusPoll?.resultsDictionaryArray {
+                
+                reportSourcesTableVC.resultsDict = resultsDict.unique
+            }
         }
     }
     

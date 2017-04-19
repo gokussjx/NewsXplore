@@ -51,3 +51,28 @@ public final class NXUtil {
         return "-"
     }
 }
+
+// Returns an array of unique ServerResultDictionary, based on srcUrl
+extension Array where Element: Equatable {
+    var unique: [Element] {
+        
+        var uniqueValues: [Element] = []
+        var uniqueUrls: [String] = []
+        
+        forEach { item in
+            if item is ServerResultDictionary {
+                if let srcUrl = (item as? ServerResultDictionary)?.srcUrl {
+                    if !uniqueUrls.contains(srcUrl) {
+                        uniqueUrls += [srcUrl]
+                        uniqueValues += [item]
+                    }
+                }
+//                return
+            }
+//            if !uniqueValues.contains(item) {
+//                uniqueValues += [item]
+//            }
+        }
+        return uniqueValues
+    }
+}

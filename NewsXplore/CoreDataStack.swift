@@ -157,7 +157,7 @@ class CoreDataStack {
         do {
             let fetchRequest: NSFetchRequest<StatusPoll> = StatusPoll.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "ANY tracking.trackingId == %@", tracking!.trackingId!)
-            let statusPollArray = try managedContext?.fetch(StatusPoll.fetchRequest()) ?? []
+            let statusPollArray = try managedContext?.fetch(fetchRequest) ?? []
             return statusPollArray
         } catch {
             return []
