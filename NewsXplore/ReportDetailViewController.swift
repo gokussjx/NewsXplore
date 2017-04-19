@@ -22,9 +22,7 @@ class ReportDetailViewController: UIViewController {
     var tracking: Tracking? = nil
     let baseUrl = "http://localhost:8084"
     var entityHtmlContent = "<br /><h2>Oops! Something went wrong!</h2>"
-    var overviewWebView: UIWebView?
-    //    var reportOverviewWebVC: ReportOverviewViewController?
-//    var reportSourcesTableVC: ReportSourcesTableViewController?
+    
     weak var delegate: EntityWebDelegate?
     
     override func viewDidLoad() {

@@ -343,7 +343,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="overviewWebView" destination="Zde-1Y-vc7" id="1jK-Jh-nwF"/>
+                        <outlet property="webView" destination="Zde-1Y-vc7" id="qOO-XG-WQ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76U-rR-v7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
