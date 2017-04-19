@@ -330,20 +330,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="374" height="571"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqu-Ta-H8k" userLabel="OverviewWebView">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zde-1Y-vc7">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="571"/>
-                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Bqu-Ta-H8k" firstAttribute="leading" secondItem="mWy-u0-aDW" secondAttribute="leading" id="BNO-7P-HO2"/>
-                            <constraint firstItem="Bqu-Ta-H8k" firstAttribute="top" secondItem="NE1-Az-EvH" secondAttribute="bottom" id="JfI-JL-Tzz"/>
-                            <constraint firstItem="W6Y-ki-hpg" firstAttribute="top" secondItem="Bqu-Ta-H8k" secondAttribute="bottom" id="SQE-1O-BPN"/>
-                            <constraint firstAttribute="trailing" secondItem="Bqu-Ta-H8k" secondAttribute="trailing" id="oWB-ra-OiQ"/>
+                            <constraint firstItem="Zde-1Y-vc7" firstAttribute="top" secondItem="NE1-Az-EvH" secondAttribute="bottom" id="KsU-zE-Z6E"/>
+                            <constraint firstItem="Zde-1Y-vc7" firstAttribute="leading" secondItem="mWy-u0-aDW" secondAttribute="leadingMargin" constant="-16" id="NjQ-ow-mM9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Zde-1Y-vc7" secondAttribute="trailing" constant="-16" id="SrX-3N-rGS"/>
+                            <constraint firstItem="W6Y-ki-hpg" firstAttribute="top" secondItem="Zde-1Y-vc7" secondAttribute="bottom" id="cjX-Io-JVh"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="overviewWebView" destination="Bqu-Ta-H8k" id="OL1-ki-0kR"/>
+                        <outlet property="overviewWebView" destination="Zde-1Y-vc7" id="1jK-Jh-nwF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76U-rR-v7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -359,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportSourceCell" textLabel="F4X-56-q50" detailTextLabel="IMs-PU-Atk" style="IBUITableViewCellStyleValue1" id="AX0-wG-b8q">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReportSourceTableViewCell" textLabel="F4X-56-q50" detailTextLabel="IMs-PU-Atk" style="IBUITableViewCellStyleValue1" id="AX0-wG-b8q" customClass="ReportSourceTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AX0-wG-b8q" id="vvU-JR-t3g">
@@ -382,6 +382,10 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="sourceDetail" destination="IMs-PU-Atk" id="W49-IC-xow"/>
+                                    <outlet property="sourceTitle" destination="F4X-56-q50" id="8Ka-it-nyy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

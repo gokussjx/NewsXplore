@@ -14,7 +14,7 @@ class ReportOverviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        overviewWebView.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -36,8 +36,12 @@ class ReportOverviewViewController: UIViewController {
 
 }
 
-extension ReportOverviewViewController: UIWebViewDelegate {
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        _ = 5
+extension ReportOverviewViewController: EntityWebDelegate {
+    func entityWebReceiveSuccess(entityHtmlContent: String) {
+                self.overviewWebView?.loadHTMLString(entityHtmlContent, baseURL: nil)
+    }
+    
+    func entityWebRecieveFailed(error: String) {
+        debugPrint("EntityWeb Error: \(error)")
     }
 }

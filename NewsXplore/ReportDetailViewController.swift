@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 protocol EntityWebDelegate: class {
-    func entityWebReceiveSuccess()
+    func entityWebReceiveSuccess(entityHtmlContent: String)
     func entityWebRecieveFailed(error: String)
 }
 
@@ -21,7 +21,7 @@ class ReportDetailViewController: UIViewController {
     
     var tracking: Tracking? = nil
     let baseUrl = "http://localhost:8084"
-    var entityHtmlContent = ""
+    var entityHtmlContent = "<br /><h2>Oops! Something went wrong!</h2>"
     var overviewWebView: UIWebView?
     //    var reportOverviewWebVC: ReportOverviewViewController?
 //    var reportSourcesTableVC: ReportSourcesTableViewController?
@@ -29,8 +29,6 @@ class ReportDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        delegate = self
         
         self.navigationItem.title = "Report Details"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "share-7.png"), style: .plain, target: self, action: nil)
@@ -42,19 +40,18 @@ class ReportDetailViewController: UIViewController {
     
     func getEntityOverview(inputEntityTrackingId: String) {
         
-        Alamofire.request(baseUrl.appending("/r/\(inputEntityTrackingId)/gnlp::as_overview")).responseString { [weak self] response in
+        Alamofire.request(baseUrl.appending("/r/\(inputEntityTrackingId)/gnlp::as_overview")).responseString {response in
             
             if let error = response.error {
                 DispatchQueue.main.async {
-                    self?.delegate?.entityWebRecieveFailed(error: error.localizedDescription)
+                    self.delegate?.entityWebRecieveFailed(error: error.localizedDescription)
                 }
                 return
             }
             
-            if let entityWebOverview = response.result.value {
-                self?.entityHtmlContent = entityWebOverview
+            if let entityHtmlContent = response.result.value {
                 DispatchQueue.main.async {
-                    self?.delegate?.entityWebReceiveSuccess()
+                    self.delegate?.entityWebReceiveSuccess(entityHtmlContent: entityHtmlContent)
                 }
             }
         }
@@ -81,26 +78,13 @@ class ReportDetailViewController: UIViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if let reportOverviewWebVC = segue.destination as? ReportOverviewViewController {
-            self.overviewWebView = reportOverviewWebVC.overviewWebView
-            overviewWebView?.loadHTMLString(entityHtmlContent, baseURL: nil)
-            overviewWebView?.reload()
+            self.delegate = reportOverviewWebVC
             
         } else if let reportSourcesTableVC = segue.destination as? ReportSourcesTableViewController {
             reportSourcesTableVC.resultsDict = tracking?.statusPoll?.resultsDictionaryArray
         }
-    }
-    
-}
-
-extension ReportDetailViewController: EntityWebDelegate {
-    func entityWebReceiveSuccess() {
-        self.overviewWebView?.loadHTMLString(entityHtmlContent, baseURL: nil)
-        overviewWebView?.reload()
-    }
-    
-    func entityWebRecieveFailed(error: String) {
-        debugPrint("EntityWeb Error: \(error)")
     }
     
 }
