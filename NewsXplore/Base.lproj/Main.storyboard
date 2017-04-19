@@ -232,15 +232,14 @@
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7g-ZF-4DC" userLabel="OverviewContainer">
                                 <rect key="frame" x="20" y="108" width="374" height="571"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="eiX-oI-EFg" kind="embed" id="oGD-yh-py6"/>
+                                    <segue destination="eiX-oI-EFg" kind="embed" identifier="overviewWebViewSegue" id="oGD-yh-py6"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPI-di-hfo" userLabel="SourcesContainer">
                                 <rect key="frame" x="20" y="108" width="374" height="571"/>
                                 <connections>
-                                    <segue destination="gyl-t8-bXW" kind="embed" id="81v-Ri-OMS"/>
+                                    <segue destination="gyl-t8-bXW" kind="embed" identifier="sourcesTableViewSegue" id="81v-Ri-OMS"/>
                                 </connections>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VgI-zx-obn">
@@ -322,7 +321,7 @@
         <!--Report Overview View Controller-->
         <scene sceneID="te0-6V-aez">
             <objects>
-                <viewController id="eiX-oI-EFg" customClass="ReportOverviewViewController" sceneMemberID="viewController">
+                <viewController id="eiX-oI-EFg" customClass="ReportOverviewViewController" customModule="NewsXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NE1-Az-EvH"/>
                         <viewControllerLayoutGuide type="bottom" id="W6Y-ki-hpg"/>
@@ -333,10 +332,9 @@
                         <subviews>
                             <webView opaque="NO" contentMode="scaleToFill" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqu-Ta-H8k" userLabel="OverviewWebView">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="571"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.36078431372549019" green="0.38823529411764707" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bqu-Ta-H8k" firstAttribute="leading" secondItem="mWy-u0-aDW" secondAttribute="leading" id="BNO-7P-HO2"/>
                             <constraint firstItem="Bqu-Ta-H8k" firstAttribute="top" secondItem="NE1-Az-EvH" secondAttribute="bottom" id="JfI-JL-Tzz"/>
@@ -344,6 +342,9 @@
                             <constraint firstAttribute="trailing" secondItem="Bqu-Ta-H8k" secondAttribute="trailing" id="oWB-ra-OiQ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="overviewWebView" destination="Bqu-Ta-H8k" id="OL1-ki-0kR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="76U-rR-v7N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

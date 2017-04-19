@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import ReachabilitySwift
+import UserNotifications
 
 protocol TrackingDelegate: class {
     func trackingReceiveSuccess(tracking: Tracking?)
@@ -19,6 +20,11 @@ protocol StatusPollDelegate: class {
     func statusPollPending(tracking: Tracking?)
     func statusPollSuccess(statusPoll: StatusPoll?)
     func statusPollReceiveFailed(error: String)
+}
+
+protocol EntityExtractDelegate: class {
+    func entityExtractAPISuccess(inputEntityTrackingId: String?)
+    func entityExtractAPIFailed(error: String)
 }
 
 class HomeViewController: UIViewController {
@@ -32,8 +38,10 @@ class HomeViewController: UIViewController {
     let coreDataStack = CoreDataStack.sharedInstance
     var placeholderLabel: UILabel!
     var success = false
+    
     weak var trackingDelegate: TrackingDelegate?
     weak var statusPollDelegate: StatusPollDelegate?
+    weak var entityExtractDelegate: EntityExtractDelegate?
     
     // Sample URL.
     // TODO: Change to dev.newsxplore.com
@@ -46,6 +54,7 @@ class HomeViewController: UIViewController {
         analyzeButton.layer.cornerRadius = 7
         trackingDelegate = self
         statusPollDelegate = self
+        entityExtractDelegate = self
         
         textView.delegate = self
         
@@ -92,7 +101,7 @@ class HomeViewController: UIViewController {
         if reachability.isReachable && textView.text.characters.count > 10 {
             let alert = UIAlertController(title: "Sending for analysis", message: "The text is being sent for analysis.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
-                self.httpPostAnalyze()
+                self.entityExtractAnalyze()
                 self.textView.endEditing(true)
                 self.textView.resignFirstResponder()
             }))
@@ -119,7 +128,31 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func httpPostAnalyze() {
+    func entityExtractAnalyze() {
+        let parameters: Parameters = [
+            "text": textView.text
+        ]
+        
+        Alamofire.request(baseUrl.appending("/gnlp_proxy/entities"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+            
+            if let error = response.error {
+                DispatchQueue.main.async {
+                    self.entityExtractDelegate?.entityExtractAPIFailed(error: error.localizedDescription)
+                }
+                
+                return
+            }
+            
+            if let json = response.result.value as? [String: Any] {
+                let inputEntityTrackingId = json["data"] as? String
+                DispatchQueue.main.async {
+                    self.entityExtractDelegate?.entityExtractAPISuccess(inputEntityTrackingId: inputEntityTrackingId)
+                }
+            }
+        }
+    }
+    
+    func httpPostAnalyze(inputEntityTrackingId: String) {
         
         var tracking: Tracking?
         
@@ -137,10 +170,11 @@ class HomeViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.trackingDelegate?.trackingReceiveFailed(error: error.localizedDescription)
                 }
+                return
             }
             
             if let json = response.result.value as? [String: Any] {
-                tracking = self.coreDataStack.updateOrInsertTracking(json: json, text: self.textView.text)
+                tracking = self.coreDataStack.updateOrInsertTracking(json: json, text: self.textView.text, inputEntityTrackingId: inputEntityTrackingId)
                 // TODO: Need better handling
                 DispatchQueue.main.async {
                     self.trackingDelegate?.trackingReceiveSuccess(tracking: tracking)
@@ -191,6 +225,20 @@ class HomeViewController: UIViewController {
     
 }
 
+extension HomeViewController: EntityExtractDelegate {
+    func entityExtractAPISuccess(inputEntityTrackingId: String?) {
+        if let inputEntityTrackingId = inputEntityTrackingId {
+            httpPostAnalyze(inputEntityTrackingId: inputEntityTrackingId)
+        }
+    }
+    
+    func entityExtractAPIFailed(error: String) {
+        debugPrint("EntityExtract error: \(error)")
+    }
+    
+    
+}
+
 extension HomeViewController: TrackingDelegate {
     func trackingReceiveSuccess(tracking: Tracking?) {
         if let tracking = tracking {
@@ -212,11 +260,35 @@ extension HomeViewController: StatusPollDelegate {
     
     func statusPollSuccess(statusPoll: StatusPoll?) {
         // ToDo
+        
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.getNotificationSettings { (settings) in
+                if settings.authorizationStatus != .authorized {
+                    // Notifications not allowed
+                }
+            }
+            
+            let localNotif = UNMutableNotificationContent()
+            localNotif.title = NSString.localizedUserNotificationString(forKey: "NewsXplore:", arguments: nil)
+            localNotif.body = NSString.localizedUserNotificationString(forKey: "A report is ready for you!", arguments: nil)
+            localNotif.sound = UNNotificationSound.default()
+            localNotif.badge = UIApplication.shared.applicationIconBadgeNumber + 1 as NSNumber
+            localNotif.categoryIdentifier = "edu.missouri.nx"
+            // Deliver the notification instantly
+            let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 1, repeats: false)
+            let request = UNNotificationRequest.init(identifier: "Content Ready", content: localNotif, trigger: trigger)
+            
+            // Schedule the notification.
+            center.add(request)
+        } else {
+            // Older version support
+        }
     }
     
     func statusPollReceiveFailed(error: String) {
         // ToDo
-        debugPrint("Tracking Error: \(error)")
+        debugPrint("StatusPoll Error: \(error)")
     }
     
 }

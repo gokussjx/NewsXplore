@@ -29,6 +29,7 @@ public class ServerResultDictionary: NSManagedObject {
     func parseAndStore(json: [String: Any]?) {
         self.dataSource = json?["dataSrc"] as? String
         self.title = json?["title"] as? String
+        self.srcUrl = json?["srcUrl"] as? String
         if let results = json?["statements"] as? [[String: Any]?] {
             for result in results {
                 if let result = ServerResult(json: result) {

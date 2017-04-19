@@ -2,7 +2,7 @@
 //  Tracking+CoreDataProperties.swift
 //  NewsXplore
 //
-//  Created by Bidyut Mukherjee on 4/17/17.
+//  Created by Bidyut Mukherjee on 4/18/17.
 //  Copyright © 2017 NewsXplore. All rights reserved.
 //
 
@@ -21,6 +21,7 @@ extension Tracking {
     @NSManaged public var postDate: NSDate?
     @NSManaged public var analysisState: String?
     @NSManaged public var text: String?
+    @NSManaged public var inputEntityTrackingId: String?
     @NSManaged public var statusPoll: StatusPoll?
 
 }

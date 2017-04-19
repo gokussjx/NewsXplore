@@ -10,9 +10,11 @@ import UIKit
 
 class ReportOverviewViewController: UIViewController {
 
+    @IBOutlet weak var overviewWebView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        overviewWebView.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -32,4 +34,10 @@ class ReportOverviewViewController: UIViewController {
     }
     */
 
+}
+
+extension ReportOverviewViewController: UIWebViewDelegate {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        _ = 5
+    }
 }

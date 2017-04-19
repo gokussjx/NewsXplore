@@ -11,6 +11,7 @@
     </entity>
     <entity name="ServerResultDictionary" representedClassName="ServerResultDictionary" syncable="YES">
         <attribute name="dataSource" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="srcUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ServerResult" inverseName="resultDictionary" inverseEntity="ServerResult" syncable="YES"/>
         <relationship name="statusPoll" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusPoll" inverseName="resultsDictionary" inverseEntity="StatusPoll" syncable="YES"/>
@@ -23,6 +24,7 @@
     </entity>
     <entity name="Tracking" representedClassName="Tracking" syncable="YES">
         <attribute name="analysisState" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="inputEntityTrackingId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -31,8 +33,8 @@
     </entity>
     <elements>
         <element name="ServerResult" positionX="160" positionY="198" width="128" height="150"/>
-        <element name="ServerResultDictionary" positionX="-74" positionY="108" width="128" height="105"/>
+        <element name="ServerResultDictionary" positionX="-74" positionY="108" width="128" height="120"/>
         <element name="StatusPoll" positionX="-270" positionY="108" width="128" height="105"/>
-        <element name="Tracking" positionX="-279" positionY="-18" width="128" height="135"/>
+        <element name="Tracking" positionX="-279" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

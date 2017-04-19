@@ -2,7 +2,7 @@
 //  ServerResultDictionary+CoreDataProperties.swift
 //  NewsXplore
 //
-//  Created by Bidyut Mukherjee on 4/9/17.
+//  Created by Bidyut Mukherjee on 4/18/17.
 //  Copyright © 2017 NewsXplore. All rights reserved.
 //
 
@@ -18,6 +18,7 @@ extension ServerResultDictionary {
 
     @NSManaged public var dataSource: String?
     @NSManaged public var title: String?
+    @NSManaged public var srcUrl: String?
     @NSManaged public var results: NSSet?
     @NSManaged public var statusPoll: StatusPoll?
 
