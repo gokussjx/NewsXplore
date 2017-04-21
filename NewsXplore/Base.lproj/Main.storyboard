@@ -231,13 +231,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7g-ZF-4DC" userLabel="OverviewContainer">
-                                <rect key="frame" x="20" y="108" width="374" height="571"/>
+                                <rect key="frame" x="20" y="103" width="374" height="581"/>
                                 <connections>
                                     <segue destination="eiX-oI-EFg" kind="embed" identifier="overviewWebViewSegue" id="oGD-yh-py6"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPI-di-hfo" userLabel="SourcesContainer">
-                                <rect key="frame" x="20" y="108" width="374" height="571"/>
+                                <rect key="frame" x="20" y="103" width="374" height="581"/>
                                 <connections>
                                     <segue destination="gyl-t8-bXW" kind="embed" identifier="sourcesTableViewSegue" id="81v-Ri-OMS"/>
                                 </connections>
@@ -270,6 +270,8 @@
                             <constraint firstAttribute="trailingMargin" secondItem="m7g-ZF-4DC" secondAttribute="trailing" id="nfG-JD-9YK"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="overviewContainer" destination="m7g-ZF-4DC" id="4LL-QR-r6P"/>
                         <outlet property="sourcesContainer" destination="ZPI-di-hfo" id="4zb-7q-m4u"/>
@@ -327,11 +329,11 @@
                         <viewControllerLayoutGuide type="bottom" id="W6Y-ki-hpg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mWy-u0-aDW">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="571"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="581"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zde-1Y-vc7">
-                                <rect key="frame" x="0.0" y="0.0" width="374" height="571"/>
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="581"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
                         </subviews>
@@ -355,7 +357,7 @@
             <objects>
                 <tableViewController id="gyl-t8-bXW" customClass="ReportSourcesTableViewController" customModule="NewsXplore" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="ZdY-uv-h7A">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="571"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="581"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>

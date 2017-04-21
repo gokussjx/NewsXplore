@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 protocol EntityWebDelegate: class {
-    func entityWebReceiveSuccess(tracking: Tracking)
+    func entityWebReceiveSuccess(tracking: Tracking?)
     func entityWebRecieveFailed(error: String)
 }
 
@@ -29,8 +29,14 @@ class ReportDetailViewController: UIViewController {
         self.navigationItem.title = "Report Details"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "share-7.png"), style: .plain, target: self, action: nil)
         
-        if let inputEntityTrackingId = tracking?.inputEntityTrackingId {
-            getEntityOverview(inputEntityTrackingId: inputEntityTrackingId)
+        if tracking?.overview == nil {
+            if let inputEntityTrackingId = tracking?.inputEntityTrackingId {
+                getEntityOverview(inputEntityTrackingId: inputEntityTrackingId)
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.delegate?.entityWebReceiveSuccess(tracking: self.tracking)
+            }
         }
     }
     

@@ -37,11 +37,9 @@ class ReportOverviewViewController: UIViewController {
 }
 
 extension ReportOverviewViewController: EntityWebDelegate {
-//    func entityWebReceiveSuccess(entityHtmlContent: String) {
-    func entityWebReceiveSuccess(tracking: Tracking) {
-        // Caution: Force unwrapping after utf8 encoding
-//        var body = String(data: entityHtmlContent.data(using: String.Encoding.nonLossyASCII)!, encoding: String.Encoding.utf8)!
-        var body: String = tracking.overview ?? "<h1>Oops! Something went wrong!</h1>"
+    func entityWebReceiveSuccess(tracking: Tracking?) {
+        
+        var body: String = tracking?.overview ?? "<h1>Oops! Something went wrong!</h1>"
         body = NXUtil.htmlHead + body + NXUtil.htmlEnd
         self.webView.loadHTMLString(body, baseURL: nil)
     }
