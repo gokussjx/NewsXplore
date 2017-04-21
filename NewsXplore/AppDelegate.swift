@@ -31,9 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print("Something went wrong")
             }
         }
-        
-//        application.registerUserNotificationSettings(UNNotificationSettings)
-        
+
         return true
     }
 

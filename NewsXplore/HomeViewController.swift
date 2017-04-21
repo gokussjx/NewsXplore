@@ -12,6 +12,17 @@ import ReachabilitySwift
 import UserNotifications
 import Toast_Swift
 
+
+protocol EntityTrackingDelegate: class {
+    func entityTrackingAPISuccess(inputEntityTrackingId: String?)
+    func entityTrackingAPIFailed(error: String)
+}
+
+protocol EntityExtractDelegate: class {
+    func entityExtractAPISuccess(inputEntityTrackingId: String?, extractedEntities: [EntityExtracted])
+    func entityExtractAPIFailed(inputEntityTrackingId: String?)
+}
+
 protocol TrackingDelegate: class {
     func trackingReceiveSuccess(tracking: Tracking?)
     func trackingReceiveFailed(error: String)
@@ -21,11 +32,6 @@ protocol StatusPollDelegate: class {
     func statusPollPending(tracking: Tracking?)
     func statusPollSuccess(statusPoll: StatusPoll?)
     func statusPollReceiveFailed(error: String)
-}
-
-protocol EntityExtractDelegate: class {
-    func entityExtractAPISuccess(inputEntityTrackingId: String?)
-    func entityExtractAPIFailed(error: String)
 }
 
 class HomeViewController: UIViewController {
@@ -42,11 +48,8 @@ class HomeViewController: UIViewController {
     
     weak var trackingDelegate: TrackingDelegate?
     weak var statusPollDelegate: StatusPollDelegate?
+    weak var entityTrackingDelegate: EntityTrackingDelegate?
     weak var entityExtractDelegate: EntityExtractDelegate?
-    
-    // Sample URL.
-    // TODO: Change to dev.newsxplore.com
-    let baseUrl = "http://localhost:8084"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +58,13 @@ class HomeViewController: UIViewController {
         analyzeButton.layer.cornerRadius = 7
         trackingDelegate = self
         statusPollDelegate = self
+        entityTrackingDelegate = self
         entityExtractDelegate = self
         
         textView.delegate = self
+        
+        textView.text = "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees."
+        tagsTextField.text = "H1B-visa"
         
         setPlaceholder()
         
@@ -73,7 +80,6 @@ class HomeViewController: UIViewController {
     func setPlaceholder() {
         placeholderLabel = UILabel()
         placeholderLabel.text = "Enter text here..."
-        //        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
         placeholderLabel.font = UIFont.systemFont(ofSize: (textView.font?.pointSize)!)
         placeholderLabel.sizeToFit()
         textView.addSubview(placeholderLabel)
@@ -102,7 +108,7 @@ class HomeViewController: UIViewController {
         if reachability.isReachable && textView.text.characters.count > 10 {
             let alert = UIAlertController(title: "Sending for analysis", message: "The text is being sent for analysis.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: {_ in
-                self.entityExtractAnalyze()
+                self.httpEntityExtractTracking()
                 self.textView.endEditing(true)
                 self.textView.resignFirstResponder()
             }))
@@ -129,16 +135,17 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func entityExtractAnalyze() {
+    // 1 - POST request to get entity tracking Id
+    func httpEntityExtractTracking() {
         let parameters: Parameters = [
             "text": textView.text
         ]
         
-        Alamofire.request(baseUrl.appending("/gnlp_proxy/entities"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(NXUtil.baseUrl.appending("/gnlp_proxy/entities"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
             if let error = response.error {
                 DispatchQueue.main.async {
-                    self.entityExtractDelegate?.entityExtractAPIFailed(error: error.localizedDescription)
+                    self.entityTrackingDelegate?.entityTrackingAPIFailed(error: error.localizedDescription)
                 }
                 
                 return
@@ -147,25 +154,63 @@ class HomeViewController: UIViewController {
             if let json = response.result.value as? [String: Any] {
                 let inputEntityTrackingId = json["data"] as? String
                 DispatchQueue.main.async {
-                    self.entityExtractDelegate?.entityExtractAPISuccess(inputEntityTrackingId: inputEntityTrackingId)
+                    self.entityTrackingDelegate?.entityTrackingAPISuccess(inputEntityTrackingId: inputEntityTrackingId)
                 }
             }
         }
     }
     
-    func httpPostAnalyze(inputEntityTrackingId: String) {
+    // 2 - GET request to get entity from the entity tracking Id
+    func httpGetEntities(entityTrackingId: String?) {
+        guard let entityTrackingId = entityTrackingId else {
+            // CAUTION: TODO: Better handling. This is BAD!
+            return
+        }
+        
+        Alamofire.request(NXUtil.baseUrl.appending("/r/\(entityTrackingId)")).responseJSON { response in
+            guard let json = response.result.value as? [String: Any] else {
+                DispatchQueue.main.async {
+                    self.entityExtractDelegate?.entityExtractAPIFailed(inputEntityTrackingId: entityTrackingId)
+                }
+                return
+            }
+            guard let data = json["data"] as? [String: Any] else {
+                DispatchQueue.main.async {
+                    self.entityExtractDelegate?.entityExtractAPIFailed(inputEntityTrackingId: entityTrackingId)
+                }
+                return
+            }
+            if let resultEntities = data["result"] as? [[String: Any]] {
+                var extractedEntities = [EntityExtracted]()
+                for resultEntity in resultEntities {
+                    if let entity = EntityExtracted(json: resultEntity) {
+                        extractedEntities.append(entity)
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.entityExtractDelegate?.entityExtractAPISuccess(inputEntityTrackingId: entityTrackingId, extractedEntities: extractedEntities)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.entityExtractDelegate?.entityExtractAPIFailed(inputEntityTrackingId: entityTrackingId)
+                }
+            }
+        }
+    }
+    
+    // 3 - POST request to get analysis tracking info
+    func httpPostAnalyze(inputEntityTrackingId: String, extractedEntities: [EntityExtracted?]?) {
         
         var tracking: Tracking?
         
         let parameters: Parameters = [
-            //            "stmt": "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees.",
-            //            "tags": "H1B-visa",
             "stmt": textView.text,
-            "tags": tagsTextField.text ?? "",
-            "limit": "src|most_likely"
+            "tags": tagsTextField.text ?? ""
         ]
+//        "limit": "src|most_likely"
         
-        Alamofire.request(baseUrl.appending("/analyze"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
+        Alamofire.request(NXUtil.baseUrl.appending("/analyze"), method: .post, parameters: parameters, encoding: JSONEncoding.default).responseJSON { response in
             
             if let error = response.error {
                 DispatchQueue.main.async {
@@ -175,7 +220,7 @@ class HomeViewController: UIViewController {
             }
             
             if let json = response.result.value as? [String: Any] {
-                tracking = self.coreDataStack.updateOrInsertTracking(json: json, text: self.textView.text, inputEntityTrackingId: inputEntityTrackingId)
+                tracking = self.coreDataStack.updateOrInsertTracking(json: json, text: self.textView.text, inputEntityTrackingId: inputEntityTrackingId, extractedEntities: extractedEntities)
                 // TODO: Need better handling
                 DispatchQueue.main.async {
                     self.trackingDelegate?.trackingReceiveSuccess(tracking: tracking)
@@ -188,13 +233,14 @@ class HomeViewController: UIViewController {
         }
     }
     
+    // 4 - GET request to get statuspoll, resultdict, results, from tracking
     func httpGetAnalyzedData(tracking: Tracking?) {
         guard let trackingID = tracking?.trackingId else {
             // CAUTION: TODO: Better handling. This is BAD!
             return
         }
         
-        Alamofire.request(baseUrl.appending("/r/\(trackingID)")).responseJSON { response in
+        Alamofire.request(NXUtil.baseUrl.appending("/r/\(trackingID)")).responseJSON { response in
             
             guard let statusCode = response.response?.statusCode else {
                 return
@@ -226,17 +272,46 @@ class HomeViewController: UIViewController {
     
 }
 
+extension HomeViewController: EntityTrackingDelegate {
+    func entityTrackingAPISuccess(inputEntityTrackingId: String?) {
+        httpGetEntities(entityTrackingId: inputEntityTrackingId)
+    }
+    
+    func entityTrackingAPIFailed(error: String) {
+        debugPrint("EntityTracking error: \(error)")
+    }
+    
+}
+
+
 extension HomeViewController: EntityExtractDelegate {
-    func entityExtractAPISuccess(inputEntityTrackingId: String?) {
+    func entityExtractAPISuccess(inputEntityTrackingId: String?, extractedEntities: [EntityExtracted]) {
         if let inputEntityTrackingId = inputEntityTrackingId {
-            httpPostAnalyze(inputEntityTrackingId: inputEntityTrackingId)
+            // ToDo: Don't assume uniqueness b/w user input tags and extracted entities
+            let uniqueEntities = extractedEntities.unique
+            if (self.tagsTextField.text?.isEmpty)! {
+                self.tagsTextField.text = uniqueEntities[0].name
+                for entity in uniqueEntities {
+                    if entity == uniqueEntities[0] {
+                        continue
+                    }
+                    self.tagsTextField.text?.append(", \(entity.name ?? "")")
+                }
+            } else {
+                for entity in uniqueEntities {
+                    self.tagsTextField.text?.append(", \(entity.name ?? "")")
+                }
+            }
+            
+            httpPostAnalyze(inputEntityTrackingId: inputEntityTrackingId, extractedEntities: extractedEntities)
         }
     }
     
-    func entityExtractAPIFailed(error: String) {
-        debugPrint("EntityExtract error: \(error)")
+    func entityExtractAPIFailed(inputEntityTrackingId: String?) {
+        if let inputEntityTrackingId = inputEntityTrackingId {
+            httpPostAnalyze(inputEntityTrackingId: inputEntityTrackingId, extractedEntities: nil)
+        }
     }
-    
     
 }
 

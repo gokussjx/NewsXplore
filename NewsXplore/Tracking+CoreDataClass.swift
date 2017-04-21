@@ -12,18 +12,22 @@ import CoreData
 @objc(Tracking)
 public class Tracking: NSManagedObject {
     
+    var entityExtractedArray: [EntityExtracted]? {
+        return self.entityExtracted?.allObjects as? [EntityExtracted]
+    }
+    
     @discardableResult
-    convenience init?(json: [String: Any]?, text: String?, postDate: Date?, inputEntityTrackingId: String?) {
+    convenience init?(json: [String: Any]?, text: String?, postDate: Date?, inputEntityTrackingId: String?, extractedEntities: [EntityExtracted?]?) {
         guard let context = CoreDataStack.sharedInstance.managedContext else {
             return nil
         }
         
         self.init(entity: Tracking.entity(), insertInto: context)
         
-        parseAndStore(json: json, text: text, postDate: postDate, inputEntityTrackingId: inputEntityTrackingId)
+        parseAndStore(json: json, text: text, postDate: postDate, inputEntityTrackingId: inputEntityTrackingId, extractedEntities: extractedEntities)
     }
     
-    func parseAndStore(json: [String: Any]?, text: String? = nil, postDate: Date? = nil, inputEntityTrackingId: String? = nil) {
+    func parseAndStore(json: [String: Any]?, text: String? = nil, postDate: Date? = nil, inputEntityTrackingId: String? = nil, extractedEntities: [EntityExtracted?]? = []) {
         self.status = json?["status"] as? String
         self.trackingId = json?["data"] as? String
         if let text = text {
@@ -47,5 +51,14 @@ public class Tracking: NSManagedObject {
         if let inputEntityTrackingId = inputEntityTrackingId {
             self.inputEntityTrackingId = inputEntityTrackingId
         }
+        guard let extractedEntities = extractedEntities else {
+            return
+        }
+        for entityExtracted in extractedEntities {
+            if let entity = entityExtracted {
+                addToEntityExtracted(entity)
+            }
+        }
+        
     }
 }

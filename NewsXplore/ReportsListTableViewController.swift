@@ -28,6 +28,7 @@ class ReportListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         trackingArray = CoreDataStack.sharedInstance.fetchTrackings()
+        tableView.reloadData()
         searchBar.endEditing(true)
         searchBar.resignFirstResponder()
     }
@@ -40,7 +41,6 @@ class ReportListTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -68,12 +68,6 @@ class ReportListTableViewController: UITableViewController {
         cell.statusLabel.text = trackingArr[indexPath.row].analysisState
         
         return cell
-        
-//
-//            let text = trackingArray[indexPath.row].text
-//            cell.titleLabel.text = (text?.isEmpty)! ? "-" : text
-//            cell.dateLabel.text = NXUtil.dateToReadableString(date: trackingArray[indexPath.row].postDate as Date?)
-//            cell.statusLabel.text = trackingArray[indexPath.row].analysisState
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -92,11 +86,7 @@ class ReportListTableViewController: UITableViewController {
     }
     
      // MARK: - Navigation
-     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-        
         if segue.identifier == "showReportDetails" {
             if let destReportDetailVC = segue.destination as? ReportDetailViewController {
                 destReportDetailVC.tracking = currentTracking

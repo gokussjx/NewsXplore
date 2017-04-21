@@ -31,6 +31,8 @@
 		67F11E631EA5B95B0064811C /* NXUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F11E621EA5B95B0064811C /* NXUtil.swift */; };
 		67F11E651EA5D06A0064811C /* share-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 67F11E641EA5D06A0064811C /* share-7.png */; };
 		67F11E671EA715570064811C /* ReportSourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F11E661EA715570064811C /* ReportSourceTableViewCell.swift */; };
+		67FC082C1EA7D2A2006E2B5F /* EntityExtracted+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FC082A1EA7D2A2006E2B5F /* EntityExtracted+CoreDataClass.swift */; };
+		67FC082D1EA7D2A2006E2B5F /* EntityExtracted+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FC082B1EA7D2A2006E2B5F /* EntityExtracted+CoreDataProperties.swift */; };
 		67FF6F801E9585CE0018EB73 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FF6F7F1E9585CE0018EB73 /* CoreDataStack.swift */; };
 		67FF6F871E970E570018EB73 /* circle-user-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 67FF6F861E970E570018EB73 /* circle-user-7.png */; };
 		67FF6F891E970EAF0018EB73 /* file-three-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 67FF6F881E970EAF0018EB73 /* file-three-7.png */; };
@@ -89,6 +91,8 @@
 		67F11E621EA5B95B0064811C /* NXUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NXUtil.swift; sourceTree = "<group>"; };
 		67F11E641EA5D06A0064811C /* share-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-7.png"; sourceTree = "<group>"; };
 		67F11E661EA715570064811C /* ReportSourceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReportSourceTableViewCell.swift; sourceTree = "<group>"; };
+		67FC082A1EA7D2A2006E2B5F /* EntityExtracted+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntityExtracted+CoreDataClass.swift"; sourceTree = "<group>"; };
+		67FC082B1EA7D2A2006E2B5F /* EntityExtracted+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EntityExtracted+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		67FF6F7F1E9585CE0018EB73 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		67FF6F861E970E570018EB73 /* circle-user-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "circle-user-7.png"; path = "../../iconbeast-lite-200/iconbeast lite 200 - png/circle-user-7.png"; sourceTree = "<group>"; };
 		67FF6F881E970EAF0018EB73 /* file-three-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "file-three-7.png"; path = "../../iconbeast-lite-200/iconbeast lite 200 - png/file-three-7.png"; sourceTree = "<group>"; };
@@ -231,8 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				67FF6F8C1E981CCD0018EB73 /* results_mod.json */,
-				679ED6C91E94B3E700F91868 /* StatusPoll */,
+				67FC08251EA7D241006E2B5F /* EntityExtracted */,
 				679ED6CA1E94B3F200F91868 /* Tracking */,
+				679ED6C91E94B3E700F91868 /* StatusPoll */,
 				679ED6CB1E94B3F900F91868 /* ServerResult */,
 				679ED6CC1E94B40000F91868 /* ServerResultDictionary */,
 				678731ED1E4AC36200806884 /* NewsXplore.xcdatamodeld */,
@@ -283,6 +288,15 @@
 				67F11E621EA5B95B0064811C /* NXUtil.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		67FC08251EA7D241006E2B5F /* EntityExtracted */ = {
+			isa = PBXGroup;
+			children = (
+				67FC082A1EA7D2A2006E2B5F /* EntityExtracted+CoreDataClass.swift */,
+				67FC082B1EA7D2A2006E2B5F /* EntityExtracted+CoreDataProperties.swift */,
+			);
+			name = EntityExtracted;
 			sourceTree = "<group>";
 		};
 		67FF6F851E970DCF0018EB73 /* IconResources */ = {
@@ -515,9 +529,11 @@
 				678731EF1E4AC36200806884 /* NewsXplore.xcdatamodeld in Sources */,
 				679ED6C61E94B3CF00F91868 /* ServerResult+CoreDataProperties.swift in Sources */,
 				67F11E631EA5B95B0064811C /* NXUtil.swift in Sources */,
+				67FC082D1EA7D2A2006E2B5F /* EntityExtracted+CoreDataProperties.swift in Sources */,
 				679ED6D01E94B43400F91868 /* ServerResultDictionary+CoreDataProperties.swift in Sources */,
 				6776CD451E8471FC00EDBBED /* ReportsListTableViewController.swift in Sources */,
 				679ED6C21E94B3CF00F91868 /* StatusPoll+CoreDataProperties.swift in Sources */,
+				67FC082C1EA7D2A2006E2B5F /* EntityExtracted+CoreDataClass.swift in Sources */,
 				67337C851EA1BC3700CD2994 /* ReportDetailViewController.swift in Sources */,
 				679ED6C51E94B3CF00F91868 /* ServerResult+CoreDataClass.swift in Sources */,
 				67FF6F801E9585CE0018EB73 /* CoreDataStack.swift in Sources */,

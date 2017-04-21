@@ -10,6 +10,12 @@ import Foundation
 
 public final class NXUtil {
     
+    // Server URL
+    // TODO: Change to dev.newsxplore.com
+//    static let baseUrl = "http://localhost:8084"
+    static let baseUrl = "http://10.0.9.182:8084"
+//    static let baseUrl = "http://192.168.0.103:8084"
+    
     static let htmlHead = "<!DOCTYPE html> \r\n "
         + "<html> \r\n "
         + "<head> \r\n "
@@ -58,6 +64,7 @@ extension Array where Element: Equatable {
         
         var uniqueValues: [Element] = []
         var uniqueUrls: [String] = []
+        var uniqueNames: [String] = []
         
         forEach { item in
             if item is ServerResultDictionary {
@@ -68,6 +75,13 @@ extension Array where Element: Equatable {
                     }
                 }
 //                return
+            } else if item is EntityExtracted {
+                if let name = (item as? EntityExtracted)?.name {
+                    if !uniqueNames.contains(name) {
+                        uniqueNames += [name]
+                        uniqueValues += [item]
+                    }
+                }
             }
 //            if !uniqueValues.contains(item) {
 //                uniqueValues += [item]

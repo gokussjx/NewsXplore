@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 protocol EntityWebDelegate: class {
-    func entityWebReceiveSuccess(entityHtmlContent: String)
+    func entityWebReceiveSuccess(tracking: Tracking)
     func entityWebRecieveFailed(error: String)
 }
 
@@ -20,8 +20,6 @@ class ReportDetailViewController: UIViewController {
     @IBOutlet weak var sourcesContainer: UIView!
     
     var tracking: Tracking? = nil
-    let baseUrl = "http://localhost:8084"
-    var entityHtmlContent = "<br /><h2>Oops! Something went wrong!</h2>"
     
     weak var delegate: EntityWebDelegate?
     
@@ -38,8 +36,12 @@ class ReportDetailViewController: UIViewController {
     
     func getEntityOverview(inputEntityTrackingId: String) {
         
-        Alamofire.request(baseUrl.appending("/r/\(inputEntityTrackingId)/gnlp::as_overview")).responseString {response in
-            
+        guard let tracking = tracking else {
+            return
+        }
+        let trackingId = tracking.trackingId!
+        Alamofire.request(NXUtil.baseUrl.appending("/overview/\(inputEntityTrackingId)+\(trackingId)")).responseString {response in
+        
             if let error = response.error {
                 DispatchQueue.main.async {
                     self.delegate?.entityWebRecieveFailed(error: error.localizedDescription)
@@ -49,7 +51,9 @@ class ReportDetailViewController: UIViewController {
             
             if let entityHtmlContent = response.result.value {
                 DispatchQueue.main.async {
-                    self.delegate?.entityWebReceiveSuccess(entityHtmlContent: entityHtmlContent)
+                    tracking.overview = entityHtmlContent
+                    CoreDataStack.sharedInstance.saveContext()
+                    self.delegate?.entityWebReceiveSuccess(tracking: tracking)
                 }
             }
         }

@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="EntityExtracted" representedClassName="EntityExtracted" syncable="YES">
+        <attribute name="entityType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="salience" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="sentiment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tracking" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tracking" inverseName="entityExtracted" inverseEntity="Tracking" syncable="YES"/>
+    </entity>
     <entity name="ServerResult" representedClassName="ServerResult" syncable="YES">
         <attribute name="isContradictionString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="isEntailmentString" optional="YES" attributeType="String" syncable="YES"/>
@@ -25,16 +33,19 @@
     <entity name="Tracking" representedClassName="Tracking" syncable="YES">
         <attribute name="analysisState" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="inputEntityTrackingId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="trackingId" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="entityExtracted" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EntityExtracted" inverseName="tracking" inverseEntity="EntityExtracted" syncable="YES"/>
         <relationship name="statusPoll" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusPoll" inverseName="tracking" inverseEntity="StatusPoll" syncable="YES"/>
     </entity>
     <elements>
         <element name="ServerResult" positionX="160" positionY="198" width="128" height="150"/>
         <element name="ServerResultDictionary" positionX="-74" positionY="108" width="128" height="120"/>
         <element name="StatusPoll" positionX="-270" positionY="108" width="128" height="105"/>
-        <element name="Tracking" positionX="-279" positionY="-18" width="128" height="150"/>
+        <element name="Tracking" positionX="-279" positionY="-18" width="128" height="180"/>
+        <element name="EntityExtracted" positionX="-81" positionY="144" width="128" height="135"/>
     </elements>
 </model>
