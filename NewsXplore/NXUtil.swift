@@ -12,8 +12,8 @@ public final class NXUtil {
     
     // Server URL
     // TODO: Change to dev.newsxplore.com
-//    static let baseUrl = "http://localhost:8084"
-    static let baseUrl = "http://10.0.9.182:8084"
+    static let baseUrl = "http://localhost:8084"
+//    static let baseUrl = "http://10.0.9.182:8084"
 //    static let baseUrl = "http://192.168.0.103:8084"
     
     static let htmlHead = "<!DOCTYPE html> \r\n "
