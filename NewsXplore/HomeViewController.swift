@@ -63,8 +63,8 @@ class HomeViewController: UIViewController {
         
         textView.delegate = self
         
-        textView.text = "H-1B program will be continued and they cannot take off the whole program out of the scope. But there can be some changes in the application process and application fees."
-        tagsTextField.text = "H1B-visa"
+        textView.text = "If you were a Muslim you could come in, but if you were a Christian, it was almost impossible."
+        tagsTextField.text = "Muslim"
         
         setPlaceholder()
         
@@ -279,6 +279,9 @@ extension HomeViewController: EntityTrackingDelegate {
     
     func entityTrackingAPIFailed(error: String) {
         debugPrint("EntityTracking error: \(error)")
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
